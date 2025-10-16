@@ -1,0 +1,14 @@
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\bin\Release\net8.0\TradHub.Core.deps.json
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\bin\Release\net8.0\TradHub.Core.runtimeconfig.json
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\bin\Release\net8.0\TradHub.Core.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\bin\Release\net8.0\TradHub.Core.pdb
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Release\net8.0\TradHub.Core.csproj.AssemblyReference.cache
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Release\net8.0\TradHub.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Release\net8.0\TradHub.Core.AssemblyInfoInputs.cache
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Release\net8.0\TradHub.Core.AssemblyInfo.cs
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Release\net8.0\TradHub.Core.csproj.CoreCompileInputs.cache
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Release\net8.0\TradHub.Core.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Release\net8.0\refint\TradHub.Core.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Release\net8.0\TradHub.Core.pdb
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Release\net8.0\TradHub.Core.genruntimeconfig.cache
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Release\net8.0\ref\TradHub.Core.dll
