@@ -363,6 +363,25 @@ namespace TradeHub.Controllers
 
             return Ok(new { message = "OTP verified successfully" });
         }
+        [HttpPost("verify-account")]
+        public async Task<ActionResult> VerifyAccount([FromBody] VerifyAccountDto model)
+        {
+            AppUser? user = null;
+            if (!string.IsNullOrEmpty(model.Email))
+                user = await _userManager.FindByEmailAsync(model.Email);
+            else if (!string.IsNullOrEmpty(model.Phone))
+                user = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == model.Phone);
+            if (user is null)
+                return NotFound(new ApiResponse(404, "User Not Found"));
+            if (!string.IsNullOrEmpty(model.Email))
+                user.EmailConfirmed = true;
+            if (!string.IsNullOrEmpty(model.Phone))
+                user.PhoneNumberConfirmed = true;
+            var result = await _userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+                return BadRequest(new ApiResponse(400, "Problem Verifying Account"));
+            return Ok(new ApiResponse(200, "Account Verified Successfully"));
+        }
         private async Task<FacebookUserInfo?> GetFacebookUserAsync(string accessToken)
         {
             using var client = new HttpClient();

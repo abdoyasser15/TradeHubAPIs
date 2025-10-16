@@ -279,6 +279,22 @@
   },
   {
     "ContainingType": "TradeHub.Controllers.AccountController",
+    "Method": "VerifyAccount",
+    "RelativePath": "api/Account/verify-account",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "TradeHub.DTOs.VerifyAccountDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TradeHub.Controllers.AccountController",
     "Method": "VerifyOtp",
     "RelativePath": "api/Account/verify-otp",
     "HttpMethod": "POST",
