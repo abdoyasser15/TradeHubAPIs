@@ -144,3 +144,14 @@ F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\R
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\TradeHub.pdb
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\TradeHub.genruntimeconfig.cache
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\ref\TradeHub.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\BouncyCastle.Cryptography.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\Google.Apis.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\Google.Apis.Auth.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\Google.Apis.Core.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\MailKit.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\Microsoft.AspNetCore.Authentication.Google.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\MimeKit.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\Newtonsoft.Json.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\System.Management.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\System.Security.Cryptography.Pkcs.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\TradeHub.sourcelink.json

@@ -198,6 +198,37 @@ namespace TradeHub.Repository.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("TradHub.Core.Entity.CategoryAttribute", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DataType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsRequired")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("CategoryAttributes");
+                });
+
             modelBuilder.Entity("TradHub.Core.Entity.Company", b =>
                 {
                     b.Property<Guid>("CompanyId")
@@ -329,10 +360,6 @@ namespace TradeHub.Repository.Data.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("ProviderKey")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
@@ -360,9 +387,6 @@ namespace TradeHub.Repository.Data.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("ProviderKey")
-                        .IsUnique();
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -485,6 +509,32 @@ namespace TradeHub.Repository.Data.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("TradHub.Core.Entity.ProductAttribute", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryAttributeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryAttributeId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductAttributes");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -534,6 +584,17 @@ namespace TradeHub.Repository.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TradHub.Core.Entity.CategoryAttribute", b =>
+                {
+                    b.HasOne("TradHub.Core.Entity.Category", "Category")
+                        .WithMany("CategoryAttributes")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("TradHub.Core.Entity.Company", b =>
@@ -620,6 +681,25 @@ namespace TradeHub.Repository.Data.Migrations
                     b.Navigation("Company");
                 });
 
+            modelBuilder.Entity("TradHub.Core.Entity.ProductAttribute", b =>
+                {
+                    b.HasOne("TradHub.Core.Entity.CategoryAttribute", "CategoryAttribute")
+                        .WithMany()
+                        .HasForeignKey("CategoryAttributeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TradHub.Core.Entity.Product", "Product")
+                        .WithMany("ProductAttributes")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("CategoryAttribute");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("TradHub.Core.Entity.BusinessType", b =>
                 {
                     b.Navigation("Companies");
@@ -627,6 +707,8 @@ namespace TradeHub.Repository.Data.Migrations
 
             modelBuilder.Entity("TradHub.Core.Entity.Category", b =>
                 {
+                    b.Navigation("CategoryAttributes");
+
                     b.Navigation("CompanyCategories");
 
                     b.Navigation("Products");
@@ -649,6 +731,11 @@ namespace TradeHub.Repository.Data.Migrations
             modelBuilder.Entity("TradHub.Core.Entity.Location", b =>
                 {
                     b.Navigation("Companies");
+                });
+
+            modelBuilder.Entity("TradHub.Core.Entity.Product", b =>
+                {
+                    b.Navigation("ProductAttributes");
                 });
 #pragma warning restore 612, 618
         }

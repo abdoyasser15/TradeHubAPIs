@@ -20,5 +20,6 @@ namespace TradHub.Core.Entity
         public Category Category { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }
+        public ICollection<ProductAttribute> ProductAttributes { get; set; } = new List<ProductAttribute>();
     }
 }

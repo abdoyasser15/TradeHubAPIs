@@ -12,3 +12,4 @@ F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\o
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Debug\net8.0\TradHub.Core.pdb
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Debug\net8.0\TradHub.Core.genruntimeconfig.cache
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Debug\net8.0\ref\TradHub.Core.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradHub.Core\obj\Debug\net8.0\TradHub.Core.sourcelink.json

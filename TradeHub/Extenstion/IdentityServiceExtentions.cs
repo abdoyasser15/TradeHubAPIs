@@ -25,6 +25,8 @@ namespace TradeHub.Extenstion
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
+            services.AddScoped<UserManager<AppUser>>();
+
 
             services.AddAuthentication(options =>
             {

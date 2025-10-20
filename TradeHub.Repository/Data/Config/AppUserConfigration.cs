@@ -35,9 +35,6 @@ namespace TradeHub.Repository.Data.Config
                 .WithMany(c=>c.Staff)
                 .HasForeignKey(u => u.CompanyId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasIndex(u => u.ProviderKey)
-            .IsUnique();
         }
     }
 }

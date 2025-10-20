@@ -270,7 +270,7 @@ namespace TradeHub.Controllers
                 return Unauthorized("Invalid Google token");
 
             var user = await _userManager.Users
-                .FirstOrDefaultAsync(u => u.ProviderKey == googleUser.Id || u.Email == googleUser.Email);
+                .FirstOrDefaultAsync(u =>  u.Email == googleUser.Email);
 
             if (user == null)
             {
@@ -284,7 +284,6 @@ namespace TradeHub.Controllers
                     Role = UserRole.User,
                     EmailConfirmed = true,
                     LoginProvider = "Google",
-                    ProviderKey = googleUser.Id
                 };
                 await _userManager.CreateAsync(user);
                 await _userManager.AddToRoleAsync(user, user.Role.ToString());
@@ -294,7 +293,6 @@ namespace TradeHub.Controllers
                 user.FirstName = googleUser.Name?.Split(' ').FirstOrDefault();
                 user.LastName = googleUser.Name?.Split(' ').Skip(1).FirstOrDefault();
                 user.LoginProvider = "Google";
-                user.ProviderKey = googleUser.Id;
                 await _userManager.UpdateAsync(user);
             }
 
@@ -320,7 +318,7 @@ namespace TradeHub.Controllers
             if (fbUser is null) return Unauthorized("Invalid Facebook token");
 
             var user = await _userManager.Users
-                .FirstOrDefaultAsync(u => u.ProviderKey == fbUser.Id || u.Email == fbUser.Email);
+                .FirstOrDefaultAsync(u => u.Email == fbUser.Email);
 
             if (user == null)
             {
@@ -334,7 +332,6 @@ namespace TradeHub.Controllers
                     Role = UserRole.User,
                     EmailConfirmed = true ,
                     LoginProvider = "Facebook",
-                    ProviderKey = fbUser.Id
                 };
                 await _userManager.CreateAsync(user);
                 await _userManager.AddToRoleAsync(user, user.Role.ToString());

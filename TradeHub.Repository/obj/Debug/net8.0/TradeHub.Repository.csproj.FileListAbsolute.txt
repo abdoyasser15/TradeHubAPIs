@@ -13,3 +13,4 @@ F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub.Repos
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub.Repository\obj\Debug\net8.0\refint\TradeHub.Repository.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub.Repository\obj\Debug\net8.0\TradeHub.Repository.pdb
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub.Repository\obj\Debug\net8.0\ref\TradeHub.Repository.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub.Repository\obj\Debug\net8.0\TradeHub.Repository.sourcelink.json

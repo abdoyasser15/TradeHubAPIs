@@ -15,3 +15,4 @@ F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub.Servi
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub.Service\bin\Debug\net8.0\TradHub.Core.pdb
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub.Service\obj\Debug\net8.0\TradeHub.Service.csproj.AssemblyReference.cache
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub.Service\obj\Debug\net8.0\TradeHub.1D062A05.Up2Date
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub.Service\obj\Debug\net8.0\TradeHub.Service.sourcelink.json

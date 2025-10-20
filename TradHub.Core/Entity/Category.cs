@@ -13,6 +13,6 @@ namespace TradHub.Core.Entity
         public bool IsActive { get; set; } = true;
         public ICollection<CompanyCategory> CompanyCategories { get; set; }
         public ICollection<Product> Products { get; set; } = new List<Product>();
-
+        public ICollection<CategoryAttribute> CategoryAttributes { get; set; } = new List<CategoryAttribute>();
     }
 }

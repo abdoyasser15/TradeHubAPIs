@@ -106,13 +106,12 @@ namespace TradeHub.Service
                 LoginProvider = model.LoginProvider ?? "Local",
                 CreatedAt = DateTime.UtcNow
             };
-            var result = await _userManager.CreateAsync(user, model.Password);
-            if (!result.Succeeded)
-            {
+            var result = await _userManager.CreateAsync(user, model.Password); 
+            if (!result.Succeeded) 
+            { 
                 var errors = result.Errors.Select(e => e.Description);
-                throw new ApiValidationException(errors);
+                throw new ApiValidationException(errors); 
             }
-
             await _userManager.AddToRoleAsync(user, user.Role.ToString());
             var token = await _tokenService.CreateTokenAsync(user, _userManager);
             return new UserIndividualDto
