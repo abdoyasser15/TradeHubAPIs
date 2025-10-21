@@ -23,5 +23,6 @@ namespace TradHub.Core.Repository_Contract
         Task<bool> AnyAsync(Expression<Func<T, bool>> predicate);
         Task<IReadOnlyList<T>> ListAsync(Expression<Func<T, bool>> predicate);
         Task<int> CountAsync(ISpecification<T> spec);
+        Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate, string? includeProperties = null);
     }
 }

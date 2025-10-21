@@ -78,5 +78,20 @@ namespace TradeHub.Repository
         {
             return await ApplySpecifications(spec).CountAsync();
         }
+
+        public async Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate, string? includeProperties = null)
+        {
+            IQueryable<T> query = _context.Set<T>();
+
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProp in includeProperties.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
+
+            return await query.FirstOrDefaultAsync(predicate);
+        }
     }
 }

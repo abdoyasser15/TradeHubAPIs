@@ -23,6 +23,8 @@ namespace TradeHub.Extenstion
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             services.AddScoped<IOtpService, OtpService>();
             services.AddScoped<INotificationService, NotificationService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ICompanyCategoryService, CompanyCategoryService>();
 
             services.Configure<ApiBehaviorOptions>(Options =>
             {

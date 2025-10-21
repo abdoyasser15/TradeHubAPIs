@@ -27,10 +27,15 @@ namespace TradeHub.Repository
         public DbSet<OtpCode> otpCodes { get; set; }
         public DbSet<CategoryAttribute> CategoryAttributes { get; set; }
         public DbSet<ProductAttribute> ProductAttributes { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);            
+            builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+
+            builder.Entity<Category>()
+            .HasIndex(c => c.Name)
+            .IsUnique();
         }
     }
 }

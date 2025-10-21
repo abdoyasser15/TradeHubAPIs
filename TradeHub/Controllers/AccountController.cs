@@ -59,6 +59,9 @@ namespace TradeHub.Controllers
             if (existingUser is null)
                 return Unauthorized(new ApiResponse(401, "Invalid Email Or Password"));
 
+            if (!existingUser.EmailConfirmed)
+                return Unauthorized(new ApiResponse(401, "Please confirm your email before logging in."));
+
             var result = await _signInManager.CheckPasswordSignInAsync(existingUser, model.Password, true);
             if (result.IsLockedOut)
                 return StatusCode(423, new ApiResponse(423, "User Account is Locked"));
