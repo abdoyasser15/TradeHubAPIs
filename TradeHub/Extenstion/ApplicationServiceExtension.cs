@@ -25,6 +25,8 @@ namespace TradeHub.Extenstion
             services.AddScoped<INotificationService, NotificationService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ICompanyCategoryService, CompanyCategoryService>();
+            services.AddScoped<ICategoryAttributeService, CategoryAttributeService>();
+            services.AddScoped<IProductAttributeService, ProductAttributeService>();
 
             services.Configure<ApiBehaviorOptions>(Options =>
             {

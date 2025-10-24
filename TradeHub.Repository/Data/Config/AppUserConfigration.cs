@@ -16,7 +16,7 @@ namespace TradeHub.Repository.Data.Config
             builder.Property(a=>a.FirstName).HasMaxLength(50).IsRequired();
             builder.Property(a=>a.LastName).HasMaxLength(50).IsRequired();
             builder.Property(a=>a.Email).HasMaxLength(100).IsRequired();
-            builder.Property(a=>a.PhoneNumber).HasMaxLength(10);
+            builder.Property(a=>a.PhoneNumber).HasMaxLength(11);
             builder.Property(a=>a.PasswordHash).IsRequired();
             
             builder.Property(a=>a.AccountType)

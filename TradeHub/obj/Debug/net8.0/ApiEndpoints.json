@@ -578,6 +578,105 @@
     ]
   },
   {
+    "ContainingType": "TradeHub.Controllers.CategoryAttributeController",
+    "Method": "GetAllCategoryAttributes",
+    "RelativePath": "api/CategoryAttribute",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[TradHub.Core.Dtos.CategoryAttributeDto, TradHub.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TradeHub.Controllers.CategoryAttributeController",
+    "Method": "AddCategoryAttribute",
+    "RelativePath": "api/CategoryAttribute",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TradHub.Core.Dtos.CategoryAttributeCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TradeHub.Controllers.CategoryAttributeController",
+    "Method": "GetCategoryAttributeById",
+    "RelativePath": "api/CategoryAttribute/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TradHub.Core.Dtos.CategoryAttributeDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TradeHub.Controllers.CategoryAttributeController",
+    "Method": "UpdateCategoryAttribute",
+    "RelativePath": "api/CategoryAttribute/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "TradHub.Core.Dtos.CategoryAttributeUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TradeHub.Controllers.CategoryAttributeController",
+    "Method": "DeleteCategoryAttribute",
+    "RelativePath": "api/CategoryAttribute/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TradeHub.Controllers.CompanyController",
     "Method": "CreateCompany",
     "RelativePath": "api/Company",
@@ -831,6 +930,105 @@
       },
       {
         "Name": "categoryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TradeHub.Controllers.ProductAttributeController",
+    "Method": "GetAllProductAttributes",
+    "RelativePath": "api/ProductAttribute",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[TradHub.Core.Dtos.productattributedto, TradHub.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TradeHub.Controllers.ProductAttributeController",
+    "Method": "CreateProductAttribute",
+    "RelativePath": "api/ProductAttribute",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "TradHub.Core.Dtos.CreateProductAttribute",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TradeHub.Controllers.ProductAttributeController",
+    "Method": "GetProductAttributeById",
+    "RelativePath": "api/ProductAttribute/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TradHub.Core.Dtos.productattributedto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TradeHub.Controllers.ProductAttributeController",
+    "Method": "UpdateProductAttribute",
+    "RelativePath": "api/ProductAttribute/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "TradHub.Core.Dtos.CreateProductAttribute",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TradeHub.Controllers.ProductAttributeController",
+    "Method": "DeleteProductAttribute",
+    "RelativePath": "api/ProductAttribute/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
