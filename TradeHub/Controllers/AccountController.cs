@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
+using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.Data;
 using System.Security.Claims;
@@ -214,8 +215,13 @@ namespace TradeHub.Controllers
             if (user == null)
                 return BadRequest(new { message = "Invalid request." });
 
-            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.NewPassword);
+            var verified = await _otpService.ValidateOtpAsync(model.Email, model.otpCode);
 
+            if(!verified)
+                return BadRequest(new { message = "Invalid or expired OTP code." });
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, model.NewPassword);
             if (!result.Succeeded)
             {
                 var errors = result.Errors.Select(e => e.Description);
@@ -298,11 +304,9 @@ namespace TradeHub.Controllers
                 user.LoginProvider = "Google";
                 await _userManager.UpdateAsync(user);
             }
-
             var login = await _authService.LoginInIndividual(user);
             return Ok(login);
         }
-
         private async Task<GoogleUserInfo?> GetGoogleUserAsync(string accessToken)
         {
             using var client = new HttpClient();
@@ -311,7 +315,7 @@ namespace TradeHub.Controllers
                 return null;
 
             var json = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<GoogleUserInfo>(json);
+            return JsonConvert.DeserializeObject<GoogleUserInfo>(json);
         }
 
         [HttpPost("facebook")]
@@ -392,7 +396,7 @@ namespace TradeHub.Controllers
                 return null;
 
             var json = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<FacebookUserInfo>(json);
+            return JsonConvert.DeserializeObject<FacebookUserInfo>(json);
         }
 
     }

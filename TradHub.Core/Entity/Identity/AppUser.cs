@@ -20,5 +20,6 @@ namespace TradHub.Core.Entity.Identity
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public string LoginProvider { get; set; }
         public ICollection<RefreshToken>? RefreshTokens { get; set; } = new List<RefreshToken>();
+        public ICollection<ProductRaiting> ProductRatings { get; set; }
     }
 }

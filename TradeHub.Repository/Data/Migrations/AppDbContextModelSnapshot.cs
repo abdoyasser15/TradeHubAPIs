@@ -538,6 +538,42 @@ namespace TradeHub.Repository.Data.Migrations
                     b.ToTable("ProductAttributes");
                 });
 
+            modelBuilder.Entity("TradHub.Core.Entity.ProductRaiting", b =>
+                {
+                    b.Property<int>("RaitingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RaitingId"));
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RaitingValue")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("RaitingId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("ProductRaiting");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -703,6 +739,25 @@ namespace TradeHub.Repository.Data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("TradHub.Core.Entity.ProductRaiting", b =>
+                {
+                    b.HasOne("TradHub.Core.Entity.Product", "Product")
+                        .WithMany("ProductRaitings")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TradHub.Core.Entity.Identity.AppUser", "User")
+                        .WithMany("ProductRatings")
+                        .HasForeignKey("UserId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TradHub.Core.Entity.BusinessType", b =>
                 {
                     b.Navigation("Companies");
@@ -728,6 +783,8 @@ namespace TradeHub.Repository.Data.Migrations
 
             modelBuilder.Entity("TradHub.Core.Entity.Identity.AppUser", b =>
                 {
+                    b.Navigation("ProductRatings");
+
                     b.Navigation("RefreshTokens");
                 });
 
@@ -739,6 +796,8 @@ namespace TradeHub.Repository.Data.Migrations
             modelBuilder.Entity("TradHub.Core.Entity.Product", b =>
                 {
                     b.Navigation("ProductAttributes");
+
+                    b.Navigation("ProductRaitings");
                 });
 #pragma warning restore 612, 618
         }

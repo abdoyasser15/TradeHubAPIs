@@ -1,9 +1,22 @@
-﻿namespace TradeHub.DTOs
+﻿using Newtonsoft.Json;
+
+namespace TradeHub.DTOs
 {
     public class FacebookUserInfo
     {
+        [JsonProperty("id")]
         public string Id { get; set; }
-        public string Email { get; set; }
+
+        [JsonProperty("name")]
         public string Name { get; set; }
+
+        [JsonProperty("first_name")]
+        public string FirstName { get; set; }
+
+        [JsonProperty("last_name")]
+        public string LastName { get; set; }
+
+        [JsonProperty("email")]
+        public string Email { get; set; }
     }
 }
