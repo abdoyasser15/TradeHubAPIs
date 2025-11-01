@@ -168,3 +168,5 @@ F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\D
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Debug\net8.0\TradeHub.sourcelink.json
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Debug\net8.0\AutoMapper.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

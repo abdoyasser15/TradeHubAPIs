@@ -22,6 +22,12 @@ namespace TradeHub.Repository.Data.Config
                 .WithMany(c => c.Products)
                 .HasForeignKey(p => p.CategoryId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Property(p => p.Description)
+                 .IsRequired(false);
+
+            builder.Property(p => p.ImageUrl)
+                .IsRequired(false);
         }
     }
 }

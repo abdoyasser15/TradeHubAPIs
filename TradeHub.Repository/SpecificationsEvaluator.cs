@@ -24,7 +24,8 @@ namespace TradeHub.Repository
                 query = query.Skip(spec.Skip).Take(spec.Take);
 
             query = spec.Include.Aggregate(query, (currentQuery, includeExpression) => currentQuery.Include(includeExpression));
-            if(spec.IsNoTracking)
+            query = spec.IncludeStrings.Aggregate(query, (current, include) => current.Include(include));
+            if (spec.IsNoTracking)
                 query = query.AsNoTracking();
             return query;
         } 

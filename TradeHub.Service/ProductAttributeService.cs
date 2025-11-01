@@ -27,7 +27,6 @@ namespace TradeHub.Service
             var productAttributeDto = new productattributedto
             {
                 Id = productAttribute.Id,
-                ProductId = productAttribute.ProductId,
                 CategoryAttributeId = productAttribute.CategoryAttributeId,
                 CategoryAttributeName = productAttribute.CategoryAttribute.Name,
                 Value = productAttribute.Value
@@ -41,7 +40,6 @@ namespace TradeHub.Service
             var productAttributeDtos = productAttributes.Select(pa => new productattributedto
             {
                 Id = pa.Id,
-                ProductId = pa.ProductId,
                 CategoryAttributeId = pa.CategoryAttributeId,
                 CategoryAttributeName = pa.CategoryAttribute.Name,
                 Value = pa.Value

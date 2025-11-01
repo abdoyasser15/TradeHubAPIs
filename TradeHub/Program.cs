@@ -2,14 +2,15 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using System.Threading.Tasks;
 using TradeHub.Extenstion;
+using TradeHub.Mapping;
 using TradeHub.MiddleWares;
 using TradeHub.Repository;
 using TradeHub.Service.Companies.Queries;
 using TradHub.Core.Entity.Identity;
-
 namespace TradeHub
 {
     public class Program
@@ -33,6 +34,8 @@ namespace TradeHub
 
             builder.Services.AddApplicationServices();
             builder.Services.AddIdentityService(builder.Configuration);
+
+            builder.Services.AddAutoMapper(typeof(ProductProfile).Assembly);
 
             var app = builder.Build();
 

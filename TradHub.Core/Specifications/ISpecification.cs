@@ -12,6 +12,7 @@ namespace TradHub.Core.Specifications
     {
         public Expression<Func<T, bool>> Criteria { get; }
         public List<Expression<Func<T,object>>> Include { get; set; }
+        public List<string> IncludeStrings { get; }
         public Expression<Func<T,object>> OrderBy { get; set; }
         public Expression<Func<T,object>> OrderByDescending { get; set; }
         public int Take { get; set; }
