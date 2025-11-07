@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
 using System.Threading.Tasks;
 using TradeHub.Extenstion;
 using TradeHub.Mapping;
@@ -27,6 +28,13 @@ namespace TradeHub
 
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddSingleton<IConnectionMultiplexer>((serviceProvider) =>
+            {
+                var connection = builder.Configuration.GetConnectionString("Redis");
+                return ConnectionMultiplexer.Connect(connection);
+            }
+            );
 
             builder.Services.AddMediatR(cfg =>
             cfg.RegisterServicesFromAssembly(typeof(GetCompanyByIdQueryHandler).Assembly));

@@ -557,10 +557,7 @@ namespace TradeHub.Repository.Data.Migrations
                     b.Property<int>("RaitingValue")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -568,7 +565,7 @@ namespace TradeHub.Repository.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("ProductRaiting");
                 });
@@ -748,7 +745,7 @@ namespace TradeHub.Repository.Data.Migrations
 
                     b.HasOne("TradHub.Core.Entity.Identity.AppUser", "User")
                         .WithMany("ProductRatings")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

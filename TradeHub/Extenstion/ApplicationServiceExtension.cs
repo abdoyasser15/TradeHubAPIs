@@ -28,6 +28,8 @@ namespace TradeHub.Extenstion
             services.AddScoped<ICategoryAttributeService, CategoryAttributeService>();
             services.AddScoped<IProductAttributeService, ProductAttributeService>();
 
+            services.AddSingleton(typeof(IResponseCashService), typeof(ResponseCasheService));
+
             services.Configure<ApiBehaviorOptions>(Options =>
             {
                 Options.InvalidModelStateResponseFactory = (actionContext) =>
