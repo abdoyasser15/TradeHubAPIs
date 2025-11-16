@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using TradHub.Core;
 using TradHub.Core.Dtos;
 using TradHub.Core.Entity;
+using TradHub.Core.Service_Contract;
 using TradHub.Core.Specifications.Product_Spec;
 
 namespace TradeHub.Service.Products.Queries
@@ -16,21 +18,48 @@ namespace TradeHub.Service.Products.Queries
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly ILoggerManager _logger;
 
-        public GetProductsHandler(IUnitOfWork unitOfWork , IMapper mapper)
+        public GetProductsHandler(IUnitOfWork unitOfWork , IMapper mapper , ILoggerManager logger)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _logger = logger;
         }
         public async Task<Pagination<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            var spec = new ProductSpecification(request.ProductSepc);
-            var product =  await _unitOfWork.Repository<Product>().GetAllSpecificationsAsync(spec);
-            var countSpec = new ProductCountSpecifications(request.ProductSepc);
-            var totalItems = await _unitOfWork.Repository<Product>().CountAsync(countSpec);
-            var mappedProducts = product.Select(p => _mapper.Map<ProductDto>(p)).ToList();
-            var result = new Pagination<ProductDto>(request.ProductSepc.pageIndex, request.ProductSepc.PageSize, totalItems, mappedProducts);
-            return result;
+            try
+            {
+                _logger.LogInfo("Fetching products with filters: {@Filters}", request.ProductSepc);
+
+                var spec = new ProductSpecification(request.ProductSepc);
+                var products = await _unitOfWork.Repository<Product>().GetAllSpecificationsAsync(spec);
+
+                var countSpec = new ProductCountSpecifications(request.ProductSepc);
+                var totalItems = await _unitOfWork.Repository<Product>().CountAsync(countSpec);
+
+                _logger.LogInfo("Fetched {Count} products from DB", products.Count);
+
+                var mappedProducts = _mapper.Map<IReadOnlyList<ProductDto>>(products);
+
+                return new Pagination<ProductDto>(
+                    request.ProductSepc.pageIndex,
+                    request.ProductSepc.PageSize,
+                    totalItems,
+                    mappedProducts
+                );
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex, "Database error occurred while fetching products");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error occurred while fetching products");
+                throw;
+            }
         }
+
     }
 }

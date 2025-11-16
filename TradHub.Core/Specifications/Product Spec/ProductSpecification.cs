@@ -43,6 +43,7 @@ namespace TradHub.Core.Specifications.Product_Spec
             ApplyNoTracking();
         }
         public ProductSpecification(int productId)
+            :base(P=>P.Id==productId)
         {
             AddIncludes();
         }
