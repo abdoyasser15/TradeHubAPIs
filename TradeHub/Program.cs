@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using StackExchange.Redis;
 using System.Threading.Tasks;
 using TradeHub.Extenstion;
@@ -35,6 +36,13 @@ namespace TradeHub
                 return ConnectionMultiplexer.Connect(connection);
             }
             );
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Information()
+                .WriteTo.Console()
+                .WriteTo.File("logs/tradehub-.log", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+
+            builder.Host.UseSerilog();
 
             builder.Services.AddMediatR(cfg =>
             cfg.RegisterServicesFromAssembly(typeof(GetCompanyByIdQueryHandler).Assembly));
@@ -67,6 +75,7 @@ namespace TradeHub
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+                app.UseSerilogRequestLogging();
             }
             else
             {
@@ -76,6 +85,7 @@ namespace TradeHub
                     options.SwaggerEndpoint("/swagger/v1/swagger.json", "TradeHub API v1");
                     options.RoutePrefix = string.Empty;
                 });
+                app.UseSerilogRequestLogging();
             }
             app.UseMiddleware<ExceptionMiddleware>();
 

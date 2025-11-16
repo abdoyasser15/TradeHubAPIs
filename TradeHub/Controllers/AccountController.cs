@@ -215,11 +215,6 @@ namespace TradeHub.Controllers
             if (user == null)
                 return BadRequest(new { message = "Invalid request." });
 
-            var verified = await _otpService.ValidateOtpAsync(model.Email, model.otpCode);
-
-            if(!verified)
-                return BadRequest(new { message = "Invalid or expired OTP code." });
-
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
             var result = await _userManager.ResetPasswordAsync(user, token, model.NewPassword);
             if (!result.Succeeded)
@@ -261,7 +256,6 @@ namespace TradeHub.Controllers
             }
             return Ok(new ApiResponse(200, "Password changed successfully."));
         }
-
         private void setRefreshTokenInCookie(string refreshToken, DateTime Expires)
         {
             var cookieOptions = new CookieOptions

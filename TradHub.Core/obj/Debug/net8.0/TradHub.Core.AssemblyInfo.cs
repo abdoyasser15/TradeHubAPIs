@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TradHub.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+027c236e44b234e612f3e95d30b0521166fb867a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2061ff5be6f3ab9245639d83bbc448b767569fea")]
 [assembly: System.Reflection.AssemblyProductAttribute("TradHub.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TradHub.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

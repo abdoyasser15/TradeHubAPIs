@@ -2671,8 +2671,7 @@
       },
       "ResetPasswordDto": {
         "required": [
-          "email",
-          "otpCode"
+          "email"
         ],
         "type": "object",
         "properties": {
@@ -2680,10 +2679,6 @@
             "minLength": 1,
             "type": "string",
             "format": "email"
-          },
-          "otpCode": {
-            "minLength": 1,
-            "type": "string"
           },
           "newPassword": {
             "minLength": 6,

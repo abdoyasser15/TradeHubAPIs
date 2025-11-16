@@ -155,3 +155,7 @@ F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\R
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\System.Management.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\System.Security.Cryptography.Pkcs.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\TradeHub.sourcelink.json
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\AutoMapper.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\Pipelines.Sockets.Unofficial.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\bin\Release\net8.0\win-x86\StackExchange.Redis.dll

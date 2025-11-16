@@ -27,6 +27,8 @@ namespace TradeHub.Extenstion
             services.AddScoped<ICompanyCategoryService, CompanyCategoryService>();
             services.AddScoped<ICategoryAttributeService, CategoryAttributeService>();
             services.AddScoped<IProductAttributeService, ProductAttributeService>();
+            services.AddScoped<ILoggerManager, LoggerManager>();
+
 
             services.AddSingleton(typeof(IResponseCashService), typeof(ResponseCasheService));
 

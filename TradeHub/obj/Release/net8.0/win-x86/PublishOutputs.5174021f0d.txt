@@ -4,6 +4,8 @@ F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\R
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\TradeHub.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\TradeHub.runtimeconfig.json
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\TradeHub.pdb
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\AutoMapper.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\Azure.Core.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\Azure.Identity.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\BouncyCastle.Cryptography.dll
@@ -46,6 +48,8 @@ F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\R
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\MimeKit.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\Newtonsoft.Json.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\Pipelines.Sockets.Unofficial.dll
+F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\StackExchange.Redis.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub\obj\Release\net8.0\win-x86\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

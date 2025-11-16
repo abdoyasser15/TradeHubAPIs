@@ -233,6 +233,10 @@
               "target": "Package",
               "version": "[8.0.20, )"
             },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
@@ -328,6 +332,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.20, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "StackExchange.Redis": {
               "target": "Package",

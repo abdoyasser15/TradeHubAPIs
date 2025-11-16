@@ -13,9 +13,6 @@ namespace TradHub.Core.Dtos
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
-        public string otpCode { get; set; }
-
         [MinLength(6)]
         public string NewPassword { get; set; }
     }
