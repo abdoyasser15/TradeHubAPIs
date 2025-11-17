@@ -118,3 +118,29 @@ ORDER BY [MigrationId];
 2025-11-17 00:05:40.873 +02:00 [INF] Executed endpoint 'TradeHub.Controllers.ProductController.GetProducts (TradeHub)'
 2025-11-17 00:05:40.874 +02:00 [INF] HTTP GET /api/Product responded 200 in 11.9554 ms
 2025-11-17 00:05:40.876 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/Product - 200 564 application/json 18.2045ms
+2025-11-17 20:06:29.309 +02:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 20:06:29.430 +02:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 20:06:29.438 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 20:06:29.441 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 20:06:29.463 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-17 20:06:29.483 +02:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-17 20:06:29.721 +02:00 [INF] User profile is available. Using 'C:\Users\ABDO YASER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-17 20:06:29.975 +02:00 [INF] Now listening on: http://localhost:5161
+2025-11-17 20:06:30.097 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-17 20:06:30.099 +02:00 [INF] Hosting environment: Development
+2025-11-17 20:06:30.101 +02:00 [INF] Content root path: F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub
+2025-11-17 20:06:30.676 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/index.html - null null
+2025-11-17 20:06:30.931 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/index.html - 200 null text/html;charset=utf-8 270.2466ms
+2025-11-17 20:06:30.996 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_vs/browserLink - null null
+2025-11-17 20:06:30.996 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-17 20:06:31.008 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - 200 16501 application/javascript; charset=utf-8 11.849ms
+2025-11-17 20:06:31.055 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_vs/browserLink - 200 null text/javascript; charset=UTF-8 59.8075ms
+2025-11-17 20:06:32.100 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - null null
+2025-11-17 20:06:32.149 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 48.9712ms

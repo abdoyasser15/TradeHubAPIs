@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Security.Claims;
 using TradeHub.DTOs;
 using TradeHub.Errors;
@@ -27,18 +28,38 @@ namespace TradeHub.Controllers
         [HttpPost]
         public async Task<ActionResult<CompanyDto>> CreateCompany([FromBody] CompanyToDto dto)
         {
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (User.IsInRole("CompanyOwner"))
+            try
             {
-                var existing = await _mediator.Send(new GetCompaniesCreatedByUserIdQuery(userId));
-                if (existing.Any())
-                    return BadRequest(new ApiResponse(400, "You already have a company."));
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                if (string.IsNullOrEmpty(userId))
+                    return Unauthorized(new ApiResponse(401, "Unauthorized"));
+
+                if (User.IsInRole("CompanyOwner"))
+                {
+                    var existing = await _mediator.Send(new GetCompaniesCreatedByUserIdQuery(userId));
+
+                    if (existing.Any())
+                        return BadRequest(new ApiResponse(400, "You already have a company."));
+                }
+                dto.CreatedById = userId;
+                var result = await _mediator.Send(new CreateCompanyCommand(dto));
+                if (result == null)
+                    return BadRequest(new ApiResponse(400, "Problem Creating Company"));
+                return Ok(result);
             }
-            var command = new CreateCompanyCommand(dto);
-            var result = await _mediator.Send(command);
-            if(result == null) 
-                return BadRequest(new ApiResponse(400,"Problem Creating Company"));
-            return Ok(result);
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new ApiResponse(400, ex.Message));
+            }
+            catch (DuplicateNameException ex)
+            {
+                return BadRequest(new ApiResponse(400, ex.Message));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, new ApiResponse(500, "Something went wrong"));
+            }
         }
         [Authorize(Roles = "Admin,CompanyOwner")]
         [HttpPut("{id:Guid}")]
