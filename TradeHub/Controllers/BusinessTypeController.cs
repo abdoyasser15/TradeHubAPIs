@@ -36,10 +36,17 @@ namespace TradeHub.Controllers
         [HttpPost]
         public async Task<ActionResult<BusinessTypeDto>> AddBusinessType([FromBody] BusinessTypeDto businessType)
         {
-            var createdBusinessType = await _businessType.AddBusinessTypeAsync(businessType);
-            if (createdBusinessType == null)
-                return BadRequest(new ApiResponse(400, "Problem Creating Business Type"));
-            return Ok(createdBusinessType);
+            try
+            {
+                var createdBusinessType = await _businessType.AddBusinessTypeAsync(businessType);
+                if (createdBusinessType is null)
+                    return BadRequest(new ApiResponse(400, "Problem Creating Business Type"));
+                return Ok(createdBusinessType);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse(400, ex.Message));
+            }
         }
         [HttpPut("{id:int}")]
         public async Task<ActionResult<BusinessTypeDto>> UpdateBusinessType(int id, [FromBody] BusinessTypeDto businessType)
@@ -52,11 +59,17 @@ namespace TradeHub.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteBusinessType(int id)
         {
-            var result = await _businessType.DeleteBusinessTypeAsync(id);
-            if (!result)
-                return NotFound(new ApiResponse(404, "Business Type Not Found"));
-            return Ok(new ApiResponse(200, "Business Type Deleted Successfully"));
+            try
+            {
+                var result = await _businessType.DeleteBusinessTypeAsync(id);
+                if (!result)
+                    return NotFound(new ApiResponse(404, "Business Type Not Found"));
+                return Ok(new ApiResponse(200, "Business Type Deleted Successfully"));
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(new ApiResponse(400, ex.Message));
+            }
         }
-
     }
 }

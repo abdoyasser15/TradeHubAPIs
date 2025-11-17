@@ -104,7 +104,7 @@ namespace TradeHub.Service
 
                 await _unitOfWork.Repository<Category>().AddAsync(newCategory);
                 await _unitOfWork.CompleteAsync();
-
+                _logger.LogInfo("Category '{Name}' added successfully", category.Name);
                 return category;
             }
             catch (DuplicateNameException ex)

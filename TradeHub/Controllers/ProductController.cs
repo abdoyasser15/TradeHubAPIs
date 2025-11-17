@@ -67,12 +67,19 @@ namespace TradeHub.Controllers
         [HttpDelete]
         public async Task<ActionResult<bool>> DeleteProduct(int id)
         {
-            var success = await _mediator.Send(new DeleteProductCommand(id));
+            try
+            {
+                var success = await _mediator.Send(new DeleteProductCommand(id));
 
-            if (!success)
-                return NotFound(new { message = $"Product with Id {id} not found" });
+                if (!success)
+                    return NotFound(new { message = $"Product with Id {id} not found" });
 
-            return Ok(new { message = "Product deleted successfully" });
+                return Ok(new { message = "Product deleted successfully" });
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, new ApiResponse(500, "Something went wrong"));
+            }
         }
         [HttpPut]
         public async Task<ActionResult<bool>> UpdateProduct(int id,[FromBody] UpdateProductDto productDto)
