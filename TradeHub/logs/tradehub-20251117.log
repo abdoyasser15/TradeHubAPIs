@@ -144,3 +144,402 @@ ORDER BY [MigrationId];
 2025-11-17 20:06:31.055 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_vs/browserLink - 200 null text/javascript; charset=UTF-8 59.8075ms
 2025-11-17 20:06:32.100 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - null null
 2025-11-17 20:06:32.149 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 48.9712ms
+2025-11-17 21:33:40.883 +02:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:33:40.967 +02:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 21:33:40.974 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:33:40.979 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 21:33:41.000 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-17 21:33:41.018 +02:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-17 21:33:41.185 +02:00 [INF] User profile is available. Using 'C:\Users\ABDO YASER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-17 21:33:41.437 +02:00 [INF] Now listening on: http://localhost:5161
+2025-11-17 21:33:41.602 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-17 21:33:41.604 +02:00 [INF] Hosting environment: Development
+2025-11-17 21:33:41.605 +02:00 [INF] Content root path: F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub
+2025-11-17 21:33:42.092 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/index.html - null null
+2025-11-17 21:33:42.451 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/index.html - 200 null text/html;charset=utf-8 395.3759ms
+2025-11-17 21:33:42.507 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_vs/browserLink - null null
+2025-11-17 21:33:42.508 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-17 21:33:42.521 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - 200 16501 application/javascript; charset=utf-8 13.2972ms
+2025-11-17 21:33:42.569 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_vs/browserLink - 200 null text/javascript; charset=UTF-8 62.4843ms
+2025-11-17 21:33:43.732 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - null null
+2025-11-17 21:33:43.809 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 76.8462ms
+2025-11-17 21:34:12.425 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - null null
+2025-11-17 21:34:12.443 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-11-17 21:34:13.705 +02:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2025-11-17 21:34:13.711 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-11-17 21:34:13.714 +02:00 [INF] HTTP GET /api/company responded 401 in 1272.1070 ms
+2025-11-17 21:34:13.718 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - 401 0 null 1292.9613ms
+2025-11-17 21:34:23.100 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - null null
+2025-11-17 21:34:23.364 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '11/11/2025 4:53:39 PM', Current time (UTC): '17/11/2025 7:34:23 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-11-17 21:34:23.404 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '11/11/2025 4:53:39 PM', Current time (UTC): '17/11/2025 7:34:23 PM'.
+2025-11-17 21:34:23.407 +02:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2025-11-17 21:34:23.410 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-11-17 21:34:23.412 +02:00 [INF] HTTP GET /api/company responded 401 in 305.8260 ms
+2025-11-17 21:34:23.414 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - 401 0 null 313.9432ms
+2025-11-17 21:34:29.025 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5161/api/account/login - application/json 71
+2025-11-17 21:34:29.097 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '11/11/2025 4:53:39 PM', Current time (UTC): '17/11/2025 7:34:29 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-11-17 21:34:29.101 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '11/11/2025 4:53:39 PM', Current time (UTC): '17/11/2025 7:34:29 PM'.
+2025-11-17 21:34:29.105 +02:00 [INF] Executing endpoint 'TradeHub.Controllers.AccountController.Login (TradeHub)'
+2025-11-17 21:34:29.142 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(TradeHub.DTOs.LoginDto) on controller TradeHub.Controllers.AccountController (TradeHub).
+2025-11-17 21:34:29.905 +02:00 [INF] Executed DbCommand (132ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[AccountType], [a].[CompanyId], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[LoginProvider], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Role], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-17 21:34:30.224 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-11-17 21:34:30.258 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-11-17 21:34:30.356 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__user_Email_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[AccountType], [t].[CompanyId], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[LoginProvider], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[Role], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[Id], [r].[CreatedOn], [r].[ExpiresOn], [r].[RevokedOn], [r].[Token], [r].[UserId]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[AccountType], [a].[CompanyId], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[LoginProvider], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Role], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Email] = @__user_Email_0
+) AS [t]
+LEFT JOIN [RefreshTokens] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id]
+2025-11-17 21:34:30.428 +02:00 [INF] Executing OkObjectResult, writing value of type 'TradeHub.DTOs.UserIndividualDto'.
+2025-11-17 21:34:30.447 +02:00 [INF] Executed action TradeHub.Controllers.AccountController.Login (TradeHub) in 1297.1578ms
+2025-11-17 21:34:30.450 +02:00 [INF] Executed endpoint 'TradeHub.Controllers.AccountController.Login (TradeHub)'
+2025-11-17 21:34:30.454 +02:00 [INF] HTTP POST /api/account/login responded 200 in 1358.6513 ms
+2025-11-17 21:34:30.469 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5161/api/account/login - 200 null application/json; charset=utf-8 1443.3157ms
+2025-11-17 21:34:34.158 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - null null
+2025-11-17 21:34:34.171 +02:00 [INF] Executing endpoint 'TradeHub.Controllers.CompanyController.GetCompanies (TradeHub)'
+2025-11-17 21:34:34.188 +02:00 [INF] Route matched with {action = "GetCompanies", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IReadOnlyList`1[TradHub.Core.Dtos.CompanyDto]]] GetCompanies(TradHub.Core.Specifications.Company_Spec.CompanySpecificationParams) on controller TradeHub.Controllers.CompanyController (TradeHub).
+2025-11-17 21:34:34.195 +02:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-11-17 21:34:34.449 +02:00 [INF] Fetching companies with filters: {"sort":null,"BusinessTypeId":null,"LocationId":null,"Search":null,"PageSize":3,"pageIndex":1,"$type":"CompanySpecificationParams"}
+2025-11-17 21:34:34.532 +02:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-17 21:34:34.534 +02:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-17 21:34:34.560 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[CompanyId], [t].[BusinessName], [t].[BusinessTypeId], [t].[CreatedById], [t].[LocationId], [t].[LogoUrl], [t].[TaxNumber], [b].[BusinessTypeId], [b].[IsActive], [b].[Name], [l].[Id], [l].[Name]
+FROM (
+    SELECT [c].[CompanyId], [c].[BusinessName], [c].[BusinessTypeId], [c].[CreatedById], [c].[LocationId], [c].[LogoUrl], [c].[TaxNumber]
+    FROM [Companies] AS [c]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [BusinessTypes] AS [b] ON [t].[BusinessTypeId] = [b].[BusinessTypeId]
+INNER JOIN [Locations] AS [l] ON [t].[LocationId] = [l].[Id]
+2025-11-17 21:34:34.596 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Companies] AS [c]
+2025-11-17 21:34:34.601 +02:00 [INF] Fetched 1 companies from DB
+2025-11-17 21:34:34.698 +02:00 [ERR] Error occurred while fetching companies
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[TradHub.Core.Entity.Company, TradHub.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[TradHub.Core.Dtos.CompanyDto, TradHub.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Company -> CompanyDto
+TradHub.Core.Entity.Company -> TradHub.Core.Dtos.CompanyDto
+   at lambda_method251(Closure, Company, CompanyDto, ResolutionContext)
+   at lambda_method250(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method250(Closure, Object, List`1, ResolutionContext)
+   at TradeHub.Service.Companies.Queries.GetCompaniesQueryHandler.Handle(GetCompaniesQuery request, CancellationToken cancellationToken) in F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub.Service\Companies\Queries\GetCompaniesQueryHandler.cs:line 46
+2025-11-17 21:34:34.778 +02:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-17 21:34:34.786 +02:00 [INF] Executed action TradeHub.Controllers.CompanyController.GetCompanies (TradeHub) in 593.5119ms
+2025-11-17 21:34:34.789 +02:00 [INF] Executed endpoint 'TradeHub.Controllers.CompanyController.GetCompanies (TradeHub)'
+2025-11-17 21:34:34.791 +02:00 [ERR] HTTP GET /api/company responded 500 in 628.2017 ms
+2025-11-17 21:34:34.794 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - 500 null application/json; charset=utf-8 635.7474ms
+2025-11-17 21:36:27.460 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5161/api/account/login - application/json 71
+2025-11-17 21:36:27.477 +02:00 [INF] Executing endpoint 'TradeHub.Controllers.AccountController.Login (TradeHub)'
+2025-11-17 21:36:27.478 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(TradeHub.DTOs.LoginDto) on controller TradeHub.Controllers.AccountController (TradeHub).
+2025-11-17 21:36:27.493 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[AccountType], [a].[CompanyId], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[LoginProvider], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Role], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-17 21:36:27.559 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-11-17 21:36:27.564 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-11-17 21:36:27.571 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Email_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[AccountType], [t].[CompanyId], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[LoginProvider], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[Role], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[Id], [r].[CreatedOn], [r].[ExpiresOn], [r].[RevokedOn], [r].[Token], [r].[UserId]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[AccountType], [a].[CompanyId], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[LoginProvider], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Role], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Email] = @__user_Email_0
+) AS [t]
+LEFT JOIN [RefreshTokens] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id]
+2025-11-17 21:36:27.575 +02:00 [INF] Executing OkObjectResult, writing value of type 'TradeHub.DTOs.UserIndividualDto'.
+2025-11-17 21:36:27.577 +02:00 [INF] Executed action TradeHub.Controllers.AccountController.Login (TradeHub) in 96.9092ms
+2025-11-17 21:36:27.579 +02:00 [INF] Executed endpoint 'TradeHub.Controllers.AccountController.Login (TradeHub)'
+2025-11-17 21:36:27.581 +02:00 [INF] HTTP POST /api/account/login responded 200 in 104.5721 ms
+2025-11-17 21:36:27.584 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5161/api/account/login - 200 null application/json; charset=utf-8 123.3931ms
+2025-11-17 21:36:33.328 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - null null
+2025-11-17 21:36:33.332 +02:00 [INF] Executing endpoint 'TradeHub.Controllers.CompanyController.GetCompanies (TradeHub)'
+2025-11-17 21:36:33.334 +02:00 [INF] Route matched with {action = "GetCompanies", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IReadOnlyList`1[TradHub.Core.Dtos.CompanyDto]]] GetCompanies(TradHub.Core.Specifications.Company_Spec.CompanySpecificationParams) on controller TradeHub.Controllers.CompanyController (TradeHub).
+2025-11-17 21:37:16.170 +02:00 [INF] Fetching companies with filters: {"sort":null,"BusinessTypeId":null,"LocationId":null,"Search":null,"PageSize":3,"pageIndex":1,"$type":"CompanySpecificationParams"}
+2025-11-17 21:37:59.830 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[CompanyId], [t].[BusinessName], [t].[BusinessTypeId], [t].[CreatedById], [t].[LocationId], [t].[LogoUrl], [t].[TaxNumber], [b].[BusinessTypeId], [b].[IsActive], [b].[Name], [l].[Id], [l].[Name]
+FROM (
+    SELECT [c].[CompanyId], [c].[BusinessName], [c].[BusinessTypeId], [c].[CreatedById], [c].[LocationId], [c].[LogoUrl], [c].[TaxNumber]
+    FROM [Companies] AS [c]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [BusinessTypes] AS [b] ON [t].[BusinessTypeId] = [b].[BusinessTypeId]
+INNER JOIN [Locations] AS [l] ON [t].[LocationId] = [l].[Id]
+2025-11-17 21:38:12.354 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Companies] AS [c]
+2025-11-17 21:38:20.537 +02:00 [INF] Fetched 1 companies from DB
+2025-11-17 21:40:42.989 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:40:43.064 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 21:40:43.075 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:40:43.078 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 21:40:43.101 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-17 21:40:43.120 +02:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-17 21:40:43.273 +02:00 [INF] User profile is available. Using 'C:\Users\ABDO YASER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-17 21:40:43.417 +02:00 [INF] Now listening on: http://localhost:5161
+2025-11-17 21:40:43.586 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-17 21:40:43.588 +02:00 [INF] Hosting environment: Development
+2025-11-17 21:40:43.590 +02:00 [INF] Content root path: F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub
+2025-11-17 21:40:43.864 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/index.html - null null
+2025-11-17 21:40:44.104 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/index.html - 200 null text/html;charset=utf-8 263.5276ms
+2025-11-17 21:40:44.173 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_vs/browserLink - null null
+2025-11-17 21:40:44.173 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-17 21:40:44.190 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - 200 16501 application/javascript; charset=utf-8 16.6943ms
+2025-11-17 21:40:44.233 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_vs/browserLink - 200 null text/javascript; charset=UTF-8 59.8434ms
+2025-11-17 21:40:45.359 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - null null
+2025-11-17 21:40:45.426 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 67.2774ms
+2025-11-17 21:40:52.056 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - null null
+2025-11-17 21:40:52.069 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-11-17 21:40:52.198 +02:00 [INF] Executing endpoint 'TradeHub.Controllers.CompanyController.GetCompanies (TradeHub)'
+2025-11-17 21:40:52.230 +02:00 [INF] Route matched with {action = "GetCompanies", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IReadOnlyList`1[TradHub.Core.Dtos.CompanyDto]]] GetCompanies(TradHub.Core.Specifications.Company_Spec.CompanySpecificationParams) on controller TradeHub.Controllers.CompanyController (TradeHub).
+2025-11-17 21:40:52.237 +02:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-11-17 21:41:02.515 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:41:02.587 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 21:41:02.598 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:41:02.602 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 21:41:02.619 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-17 21:41:02.640 +02:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-17 21:41:02.781 +02:00 [INF] User profile is available. Using 'C:\Users\ABDO YASER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-17 21:41:02.932 +02:00 [INF] Now listening on: http://localhost:5161
+2025-11-17 21:41:03.088 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-17 21:41:03.090 +02:00 [INF] Hosting environment: Development
+2025-11-17 21:41:03.092 +02:00 [INF] Content root path: F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub
+2025-11-17 21:41:03.647 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/index.html - null null
+2025-11-17 21:41:03.896 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/index.html - 200 null text/html;charset=utf-8 262.4425ms
+2025-11-17 21:41:03.966 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-17 21:41:03.967 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_vs/browserLink - null null
+2025-11-17 21:41:03.978 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - 200 16501 application/javascript; charset=utf-8 12.1091ms
+2025-11-17 21:41:04.037 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_vs/browserLink - 200 null text/javascript; charset=UTF-8 70.0946ms
+2025-11-17 21:41:05.192 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - null null
+2025-11-17 21:41:05.203 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-11-17 21:41:05.301 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - null null
+2025-11-17 21:41:05.385 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 84.2452ms
+2025-11-17 21:41:05.392 +02:00 [INF] Executing endpoint 'TradeHub.Controllers.CompanyController.GetCompanies (TradeHub)'
+2025-11-17 21:41:05.436 +02:00 [INF] Route matched with {action = "GetCompanies", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IReadOnlyList`1[TradHub.Core.Dtos.CompanyDto]]] GetCompanies(TradHub.Core.Specifications.Company_Spec.CompanySpecificationParams) on controller TradeHub.Controllers.CompanyController (TradeHub).
+2025-11-17 21:41:05.443 +02:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-11-17 21:41:05.635 +02:00 [INF] Fetching companies with filters: {"sort":null,"BusinessTypeId":null,"LocationId":null,"Search":null,"PageSize":3,"pageIndex":1,"$type":"CompanySpecificationParams"}
+2025-11-17 21:41:05.908 +02:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-17 21:41:05.910 +02:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-17 21:41:06.165 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[CompanyId], [t].[BusinessName], [t].[BusinessTypeId], [t].[CreatedById], [t].[LocationId], [t].[LogoUrl], [t].[TaxNumber], [b].[BusinessTypeId], [b].[IsActive], [b].[Name], [l].[Id], [l].[Name]
+FROM (
+    SELECT [c].[CompanyId], [c].[BusinessName], [c].[BusinessTypeId], [c].[CreatedById], [c].[LocationId], [c].[LogoUrl], [c].[TaxNumber]
+    FROM [Companies] AS [c]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [BusinessTypes] AS [b] ON [t].[BusinessTypeId] = [b].[BusinessTypeId]
+INNER JOIN [Locations] AS [l] ON [t].[LocationId] = [l].[Id]
+2025-11-17 21:41:06.221 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Companies] AS [c]
+2025-11-17 21:41:06.228 +02:00 [INF] Fetched 1 companies from DB
+2025-11-17 21:41:06.256 +02:00 [INF] Executing OkObjectResult, writing value of type 'TradHub.Core.Dtos.Pagination`1[[TradHub.Core.Dtos.CompanyDto, TradHub.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-17 21:41:06.276 +02:00 [INF] Executed action TradeHub.Controllers.CompanyController.GetCompanies (TradeHub) in 834.2131ms
+2025-11-17 21:41:06.279 +02:00 [INF] Executed endpoint 'TradeHub.Controllers.CompanyController.GetCompanies (TradeHub)'
+2025-11-17 21:41:06.283 +02:00 [INF] HTTP GET /api/company responded 200 in 1081.1234 ms
+2025-11-17 21:41:06.296 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - 200 null application/json; charset=utf-8 1104.3209ms
+2025-11-17 21:46:06.373 +02:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:46:06.445 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 21:46:06.452 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:46:06.455 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 21:46:06.471 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-17 21:46:06.491 +02:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-17 21:46:06.623 +02:00 [INF] User profile is available. Using 'C:\Users\ABDO YASER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-17 21:46:06.764 +02:00 [INF] Now listening on: http://localhost:5161
+2025-11-17 21:46:06.885 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-17 21:46:06.889 +02:00 [INF] Hosting environment: Development
+2025-11-17 21:46:06.890 +02:00 [INF] Content root path: F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub
+2025-11-17 21:46:07.287 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/index.html - null null
+2025-11-17 21:46:07.554 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/index.html - 200 null text/html;charset=utf-8 281.2956ms
+2025-11-17 21:46:07.603 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-17 21:46:07.608 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_vs/browserLink - null null
+2025-11-17 21:46:07.615 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - 200 16501 application/javascript; charset=utf-8 11.4682ms
+2025-11-17 21:46:07.663 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.2487ms
+2025-11-17 21:46:08.819 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - null null
+2025-11-17 21:46:08.897 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 78.6555ms
+2025-11-17 21:46:14.126 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - null null
+2025-11-17 21:46:14.143 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-11-17 21:46:14.294 +02:00 [INF] Executing endpoint 'TradeHub.Controllers.CompanyController.GetCompanies (TradeHub)'
+2025-11-17 21:46:14.336 +02:00 [INF] Route matched with {action = "GetCompanies", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IReadOnlyList`1[TradHub.Core.Dtos.CompanyDto]]] GetCompanies(TradHub.Core.Specifications.Company_Spec.CompanySpecificationParams) on controller TradeHub.Controllers.CompanyController (TradeHub).
+2025-11-17 21:46:14.343 +02:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-11-17 21:46:14.535 +02:00 [INF] Fetching companies with filters: {"sort":null,"BusinessTypeId":null,"LocationId":null,"Search":null,"PageSize":3,"pageIndex":1,"$type":"CompanySpecificationParams"}
+2025-11-17 21:46:14.775 +02:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-17 21:46:14.778 +02:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-11-17 21:46:15.021 +02:00 [INF] Executed DbCommand (28ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[CompanyId], [t].[BusinessName], [t].[BusinessTypeId], [t].[CreatedById], [t].[LocationId], [t].[LogoUrl], [t].[TaxNumber], [b].[BusinessTypeId], [b].[IsActive], [b].[Name], [l].[Id], [l].[Name]
+FROM (
+    SELECT [c].[CompanyId], [c].[BusinessName], [c].[BusinessTypeId], [c].[CreatedById], [c].[LocationId], [c].[LogoUrl], [c].[TaxNumber]
+    FROM [Companies] AS [c]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [BusinessTypes] AS [b] ON [t].[BusinessTypeId] = [b].[BusinessTypeId]
+INNER JOIN [Locations] AS [l] ON [t].[LocationId] = [l].[Id]
+2025-11-17 21:46:15.084 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Companies] AS [c]
+2025-11-17 21:46:15.092 +02:00 [INF] Fetched 1 companies from DB
+2025-11-17 21:46:15.117 +02:00 [INF] Executing OkObjectResult, writing value of type 'TradHub.Core.Dtos.Pagination`1[[TradHub.Core.Dtos.CompanyDto, TradHub.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-17 21:46:15.146 +02:00 [INF] Executed action TradeHub.Controllers.CompanyController.GetCompanies (TradeHub) in 803.428ms
+2025-11-17 21:46:15.148 +02:00 [INF] Executed endpoint 'TradeHub.Controllers.CompanyController.GetCompanies (TradeHub)'
+2025-11-17 21:46:15.155 +02:00 [INF] HTTP GET /api/company responded 200 in 1013.2778 ms
+2025-11-17 21:46:15.175 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/company?PageIndex=1&PageSize=3 - 200 null application/json; charset=utf-8 1049.0713ms
+2025-11-17 21:57:56.511 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:57:56.590 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 21:57:56.598 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:57:56.601 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 21:57:56.624 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-17 21:57:56.647 +02:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-17 21:57:56.798 +02:00 [INF] User profile is available. Using 'C:\Users\ABDO YASER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-17 21:57:57.005 +02:00 [INF] Now listening on: http://localhost:5161
+2025-11-17 21:57:57.133 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-17 21:57:57.137 +02:00 [INF] Hosting environment: Development
+2025-11-17 21:57:57.138 +02:00 [INF] Content root path: F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub
+2025-11-17 21:57:57.624 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/index.html - null null
+2025-11-17 21:57:57.871 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/index.html - 200 null text/html;charset=utf-8 263.8796ms
+2025-11-17 21:57:57.928 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_vs/browserLink - null null
+2025-11-17 21:57:57.930 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-17 21:57:57.942 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - 200 16501 application/javascript; charset=utf-8 12.6757ms
+2025-11-17 21:57:57.982 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.4088ms
+2025-11-17 21:57:59.178 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - null null
+2025-11-17 21:57:59.235 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 56.8234ms
+2025-11-17 21:58:01.297 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 - null null
+2025-11-17 21:58:01.311 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-11-17 21:58:01.395 +02:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|CompanyOwner)
+2025-11-17 21:58:01.400 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-11-17 21:58:01.405 +02:00 [INF] HTTP GET /api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 responded 401 in 95.4259 ms
+2025-11-17 21:58:01.410 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 - 401 0 null 112.8619ms
+2025-11-17 21:58:06.316 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5161/api/account/login - application/json 71
+2025-11-17 21:58:06.382 +02:00 [INF] Executing endpoint 'TradeHub.Controllers.AccountController.Login (TradeHub)'
+2025-11-17 21:58:06.413 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(TradeHub.DTOs.LoginDto) on controller TradeHub.Controllers.AccountController (TradeHub).
+2025-11-17 21:58:06.783 +02:00 [INF] Executed DbCommand (24ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[AccountType], [a].[CompanyId], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[LoginProvider], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Role], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-17 21:58:07.033 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-11-17 21:58:07.049 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-11-17 21:58:07.125 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__user_Email_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[AccountType], [t].[CompanyId], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[LoginProvider], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[Role], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[Id], [r].[CreatedOn], [r].[ExpiresOn], [r].[RevokedOn], [r].[Token], [r].[UserId]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[AccountType], [a].[CompanyId], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[LoginProvider], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Role], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Email] = @__user_Email_0
+) AS [t]
+LEFT JOIN [RefreshTokens] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id]
+2025-11-17 21:58:07.177 +02:00 [INF] Executing OkObjectResult, writing value of type 'TradeHub.DTOs.UserIndividualDto'.
+2025-11-17 21:58:07.198 +02:00 [INF] Executed action TradeHub.Controllers.AccountController.Login (TradeHub) in 777.163ms
+2025-11-17 21:58:07.201 +02:00 [INF] Executed endpoint 'TradeHub.Controllers.AccountController.Login (TradeHub)'
+2025-11-17 21:58:07.203 +02:00 [INF] HTTP POST /api/account/login responded 200 in 880.4903 ms
+2025-11-17 21:58:07.213 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5161/api/account/login - 200 null application/json; charset=utf-8 896.6984ms
+2025-11-17 21:58:09.097 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 - null null
+2025-11-17 21:58:09.103 +02:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|CompanyOwner)
+2025-11-17 21:58:09.105 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-11-17 21:58:09.107 +02:00 [INF] HTTP GET /api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 responded 401 in 5.7222 ms
+2025-11-17 21:58:09.109 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 - 401 0 null 12.1452ms
+2025-11-17 21:58:27.041 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 - null null
+2025-11-17 21:58:27.049 +02:00 [INF] Executing endpoint 'TradeHub.Controllers.CompanyController.GetCompanyById (TradeHub)'
+2025-11-17 21:58:27.059 +02:00 [INF] Route matched with {action = "GetCompanyById", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TradHub.Core.Dtos.CompanyDto]] GetCompanyById(System.Guid) on controller TradeHub.Controllers.CompanyController (TradeHub).
+2025-11-17 21:58:27.065 +02:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-11-17 21:58:27.264 +02:00 [INF] Fetching company with Id="48c8cb64-3538-489d-8b51-5e1781c6c238"
+2025-11-17 21:58:27.357 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[CompanyId], [c].[BusinessName], [c].[BusinessTypeId], [c].[CreatedById], [c].[LocationId], [c].[LogoUrl], [c].[TaxNumber], [b].[BusinessTypeId], [b].[IsActive], [b].[Name], [l].[Id], [l].[Name]
+FROM [Companies] AS [c]
+INNER JOIN [BusinessTypes] AS [b] ON [c].[BusinessTypeId] = [b].[BusinessTypeId]
+INNER JOIN [Locations] AS [l] ON [c].[LocationId] = [l].[Id]
+WHERE [c].[CompanyId] = @__id_0
+2025-11-17 21:58:27.364 +02:00 [INF] Company with Id="48c8cb64-3538-489d-8b51-5e1781c6c238" fetched successfully
+2025-11-17 21:58:27.373 +02:00 [INF] Executing OkObjectResult, writing value of type 'TradHub.Core.Dtos.CompanyDto'.
+2025-11-17 21:58:27.380 +02:00 [INF] Executed action TradeHub.Controllers.CompanyController.GetCompanyById (TradeHub) in 318.3456ms
+2025-11-17 21:58:27.382 +02:00 [INF] Executed endpoint 'TradeHub.Controllers.CompanyController.GetCompanyById (TradeHub)'
+2025-11-17 21:58:27.384 +02:00 [INF] HTTP GET /api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 responded 200 in 338.6668 ms
+2025-11-17 21:58:27.387 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 - 200 null application/json; charset=utf-8 346.2121ms

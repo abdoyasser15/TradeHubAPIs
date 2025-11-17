@@ -45,13 +45,12 @@ namespace TradeHub.Service.Companies.Queries
 
                 var mappedCompanies = _mapper.Map<List<CompanyDto>>(companies);
 
-                var result = new Pagination<CompanyDto>(
+                return new Pagination<CompanyDto>(
                     request.SpecParams.pageIndex,
                     request.SpecParams.PageSize,
                     totalItems,
                     mappedCompanies
                 );
-                return result;
             }
             catch (Exception ex) {
                 _logger.LogError(ex, "Error occurred while fetching companies");

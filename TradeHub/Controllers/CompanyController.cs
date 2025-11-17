@@ -92,9 +92,16 @@ namespace TradeHub.Controllers
         [HttpGet("{id:Guid}")]
         public async Task<ActionResult<CompanyDto>> GetCompanyById(Guid id)
         {
-            var company = await _mediator.Send(new GetCompanyByIdQuery(id));
-            if (company == null) return NotFound(new ApiResponse(404,"Company Not Found"));
-            return Ok(company);
+            try
+            {
+                var company = await _mediator.Send(new GetCompanyByIdQuery(id));
+                if (company == null) 
+                    return NotFound(new ApiResponse(404, "Company Not Found"));
+                return Ok(company);
+            }
+            catch (Exception ex) {
+                return StatusCode(500, new { message = "Something went wrong." });
+            }
         }
         [Authorize(Roles = "Admin")]
         [HttpGet]

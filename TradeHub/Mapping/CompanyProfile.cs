@@ -19,6 +19,8 @@ namespace TradeHub.Mapping
              .ForMember(dest => dest.CompanyId, opt => opt.Ignore());
 
             CreateMap<Company, CompanyToDto>();
+            CreateMap<Company, CompanyDto>()
+                .ForMember(dest=>dest.ID,opt=>opt.MapFrom(src=>src.CompanyId));
         }
     }
 }
