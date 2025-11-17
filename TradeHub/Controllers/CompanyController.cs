@@ -100,9 +100,15 @@ namespace TradeHub.Controllers
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<CompanyDto>>> GetCompanies([FromQuery] CompanySpecificationParams specParams)
         {
-            var query = new GetCompaniesQuery(specParams);
-            var companies = await _mediator.Send(query);
-            return Ok(companies);
+            try
+            {
+                var query = new GetCompaniesQuery(specParams);
+                var companies = await _mediator.Send(query);
+                return Ok(companies);
+            }
+            catch (Exception) {
+                return StatusCode(500, new { message = "Something went wrong." });
+            }
         }
         [Authorize(Roles = "Admin")]
         [HttpGet("user/{UserId}/companies")]
