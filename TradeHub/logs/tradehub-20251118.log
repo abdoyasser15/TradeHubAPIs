@@ -130,3 +130,29 @@ WHERE [c].[CompanyId] = @__id_0
 2025-11-18 22:04:49.891 +02:00 [INF] Executed endpoint 'TradeHub.Controllers.CompanyController.GetCompanyById (TradeHub)'
 2025-11-18 22:04:49.893 +02:00 [INF] HTTP GET /api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 responded 200 in 256.9624 ms
 2025-11-18 22:04:49.896 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 - 200 null application/json; charset=utf-8 263.5905ms
+2025-11-18 22:32:26.836 +02:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-18 22:32:26.922 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-18 22:32:26.927 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-18 22:32:26.931 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-18 22:32:26.950 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-18 22:32:26.972 +02:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-18 22:32:27.118 +02:00 [INF] User profile is available. Using 'C:\Users\ABDO YASER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-18 22:32:27.272 +02:00 [INF] Now listening on: http://localhost:5161
+2025-11-18 22:32:27.368 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-18 22:32:27.374 +02:00 [INF] Hosting environment: Development
+2025-11-18 22:32:27.377 +02:00 [INF] Content root path: F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub
+2025-11-18 22:32:27.768 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/index.html - null null
+2025-11-18 22:32:28.023 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/index.html - 200 null text/html;charset=utf-8 266.729ms
+2025-11-18 22:32:28.083 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-18 22:32:28.083 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_vs/browserLink - null null
+2025-11-18 22:32:28.091 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - 200 16501 application/javascript; charset=utf-8 7.627ms
+2025-11-18 22:32:28.131 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.7405ms
+2025-11-18 22:32:29.129 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - null null
+2025-11-18 22:32:29.189 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 60.6539ms

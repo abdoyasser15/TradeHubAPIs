@@ -65,28 +65,41 @@ namespace TradeHub.Controllers
         [HttpPut("{id:Guid}")]
         public async Task<ActionResult<CompanyDto>> UpdateCompany(Guid id,[FromBody] CompanyToDto dto)
         {
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (User.IsInRole("CompanyOwner"))
+            try
             {
-                var company = await _mediator.Send(new GetCompanyByIdQuery(id));
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (User.IsInRole("CompanyOwner"))
+                {
+                    var company = await _mediator.Send(new GetCompanyByIdQuery(id));
 
-                if (company == null)
-                    return NotFound(new ApiResponse(404, "Company Not Found"));
+                    if (company is null)
+                        return NotFound(new ApiResponse(404, "Company Not Found"));
 
-                if (company.CreatedById != userId)
-                    return Forbid();
+                    if (company.CreatedById != userId)
+                        return Forbid();
+                }
+                var result = await _mediator.Send(new UpdateCompanyCommand { Id = id, Company = dto });
+                if (result is null) return NotFound(new ApiResponse(404, "Company Not Found"));
+                return Ok(result);
             }
-            var result = await _mediator.Send(new UpdateCompanyCommand { Id = id, Company = dto });
-            if (result == null) return NotFound(new ApiResponse(404,"Company Not Found"));
-            return Ok(result);
+            catch (Exception)
+            {
+                return StatusCode(500, new ApiResponse(500, "Something went wrong"));
+            }
         }
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id:Guid}")]
         public async Task<ActionResult> DeleteCompany(Guid id)
         {
-            var result = await _mediator.Send(new DeleteCompanyCommand(id));
-            if (!result) return NotFound(new ApiResponse(404,"Company Not Found"));
-            return Ok(new ApiResponse(200,"Company Deleted Successfully"));
+            try
+            {
+                var result = await _mediator.Send(new DeleteCompanyCommand(id));
+                if (!result) return NotFound(new ApiResponse(404, "Company Not Found"));
+                return Ok(new ApiResponse(200, "Company Deleted Successfully"));
+            }
+            catch (Exception) {
+                return StatusCode(500, new ApiResponse(500, "Something went wrong"));
+            }
         }
         [Authorize(Roles = "Admin,CompanyOwner")]
         [HttpGet("{id:Guid}")]
@@ -121,18 +134,30 @@ namespace TradeHub.Controllers
         [HttpGet("user/{UserId}/companies")]
         public async Task<ActionResult<IReadOnlyList<CompanyDto>>> GetCompaniesByUserId(string UserId)
         {
-            var companies = await _mediator.Send(new GetCompaniesCreatedByUserIdQuery(UserId));
-            if(companies == null || !companies.Any()) 
-                return NotFound(new ApiResponse(404,"No Companies Found for the Given User"));
-            return Ok(companies);
+            try
+            {
+                var companies = await _mediator.Send(new GetCompaniesCreatedByUserIdQuery(UserId));
+                if (companies == null || !companies.Any())
+                    return NotFound(new ApiResponse(404, "No Companies Found for the Given User"));
+                return Ok(companies);
+            }
+            catch (Exception) {
+                return StatusCode(500, new { message = "Something went wrong." });
+            }
         }
         [Authorize(Roles = "Admin,CompanyOwner")]
         [HttpPut("{companyId:Guid}/logo")]
         public async Task<ActionResult> UpdateCompanyLogo(Guid companyId, [FromBody] LogoDto logoUrl)
         {
-            var result = await _mediator.Send(new UpdateCompanyLogoCommand(companyId, logoUrl.LogoUrl));
-            if (!result) return NotFound(new ApiResponse(404,"Company Not Found"));
-            return Ok(new ApiResponse(200,"Company Logo Updated Successfully"));
+            try
+            {
+                var result = await _mediator.Send(new UpdateCompanyLogoCommand(companyId, logoUrl.LogoUrl));
+                if (!result) return NotFound(new ApiResponse(404, "Company Not Found"));
+                return Ok(new ApiResponse(200, "Company Logo Updated Successfully"));
+            }
+            catch (Exception) {
+                return StatusCode(500, new { message = "Something went wrong." });
+            }
         }
     }
 }
