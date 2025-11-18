@@ -1,0 +1,95 @@
+2025-11-19 00:53:34.738 +02:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-19 00:53:34.832 +02:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-19 00:53:34.841 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-19 00:53:34.846 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-19 00:53:34.872 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-19 00:53:34.908 +02:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-19 00:53:35.087 +02:00 [INF] User profile is available. Using 'C:\Users\ABDO YASER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-19 00:53:35.330 +02:00 [INF] Now listening on: http://localhost:5161
+2025-11-19 00:53:35.493 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-19 00:53:35.504 +02:00 [INF] Hosting environment: Development
+2025-11-19 00:53:35.505 +02:00 [INF] Content root path: F:\study\backend\Eng Ahmed Nasr\08 ASP.NET Core Web APIs\TradeHub\TradeHub
+2025-11-19 00:53:38.468 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/index.html - null null
+2025-11-19 00:53:38.742 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/index.html - 200 null text/html;charset=utf-8 287.9397ms
+2025-11-19 00:53:38.801 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-19 00:53:38.805 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/_vs/browserLink - null null
+2025-11-19 00:53:38.814 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_framework/aspnetcore-browser-refresh.js - 200 16501 application/javascript; charset=utf-8 13.154ms
+2025-11-19 00:53:38.878 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/_vs/browserLink - 200 null text/javascript; charset=UTF-8 73.2646ms
+2025-11-19 00:53:40.157 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - null null
+2025-11-19 00:53:40.212 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 55.1131ms
+2025-11-19 00:53:43.106 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 - null null
+2025-11-19 00:53:43.119 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-11-19 00:53:43.679 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '18/11/2025 9:04:47 PM', Current time (UTC): '18/11/2025 10:53:43 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-11-19 00:53:43.715 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '18/11/2025 9:04:47 PM', Current time (UTC): '18/11/2025 10:53:43 PM'.
+2025-11-19 00:53:43.729 +02:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|CompanyOwner)
+2025-11-19 00:53:43.736 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-11-19 00:53:43.740 +02:00 [INF] HTTP GET /api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 responded 401 in 622.8911 ms
+2025-11-19 00:53:43.745 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 - 401 0 null 639.2973ms
+2025-11-19 00:53:49.815 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5161/api/account/login - application/json 71
+2025-11-19 00:53:49.832 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '18/11/2025 9:04:47 PM', Current time (UTC): '18/11/2025 10:53:49 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-11-19 00:53:49.835 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '18/11/2025 9:04:47 PM', Current time (UTC): '18/11/2025 10:53:49 PM'.
+2025-11-19 00:53:49.840 +02:00 [INF] Executing endpoint 'TradeHub.Controllers.AccountController.Login (TradeHub)'
+2025-11-19 00:53:49.877 +02:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(TradeHub.DTOs.LoginDto) on controller TradeHub.Controllers.AccountController (TradeHub).
+2025-11-19 00:53:50.444 +02:00 [INF] Executed DbCommand (48ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[AccountType], [a].[CompanyId], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[LoginProvider], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Role], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-19 00:53:50.727 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-11-19 00:53:50.750 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-11-19 00:53:50.843 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__user_Email_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[AccountType], [t].[CompanyId], [t].[ConcurrencyStamp], [t].[CreatedAt], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[LoginProvider], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[Role], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[Id], [r].[CreatedOn], [r].[ExpiresOn], [r].[RevokedOn], [r].[Token], [r].[UserId]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[AccountType], [a].[CompanyId], [a].[ConcurrencyStamp], [a].[CreatedAt], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[LoginProvider], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Role], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[Email] = @__user_Email_0
+) AS [t]
+LEFT JOIN [RefreshTokens] AS [r] ON [t].[Id] = [r].[UserId]
+ORDER BY [t].[Id]
+2025-11-19 00:53:50.906 +02:00 [INF] Executing OkObjectResult, writing value of type 'TradeHub.DTOs.UserIndividualDto'.
+2025-11-19 00:53:50.920 +02:00 [INF] Executed action TradeHub.Controllers.AccountController.Login (TradeHub) in 1036.5076ms
+2025-11-19 00:53:50.923 +02:00 [INF] Executed endpoint 'TradeHub.Controllers.AccountController.Login (TradeHub)'
+2025-11-19 00:53:50.926 +02:00 [INF] HTTP POST /api/account/login responded 200 in 1098.7320 ms
+2025-11-19 00:53:50.939 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5161/api/account/login - 200 null application/json; charset=utf-8 1124.6531ms
+2025-11-19 00:53:57.271 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5161/api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 - null null
+2025-11-19 00:53:57.285 +02:00 [INF] Executing endpoint 'TradeHub.Controllers.CompanyController.GetCompanyById (TradeHub)'
+2025-11-19 00:53:57.301 +02:00 [INF] Route matched with {action = "GetCompanyById", controller = "Company"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[TradHub.Core.Dtos.CompanyDto]] GetCompanyById(System.Guid) on controller TradeHub.Controllers.CompanyController (TradeHub).
+2025-11-19 00:53:57.307 +02:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-11-19 00:53:57.436 +02:00 [INF] Fetching company with Id="48c8cb64-3538-489d-8b51-5e1781c6c238"
+2025-11-19 00:53:57.521 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[CompanyId], [c].[BusinessName], [c].[BusinessTypeId], [c].[CreatedById], [c].[LocationId], [c].[LogoUrl], [c].[TaxNumber], [b].[BusinessTypeId], [b].[IsActive], [b].[Name], [l].[Id], [l].[Name]
+FROM [Companies] AS [c]
+INNER JOIN [BusinessTypes] AS [b] ON [c].[BusinessTypeId] = [b].[BusinessTypeId]
+INNER JOIN [Locations] AS [l] ON [c].[LocationId] = [l].[Id]
+WHERE [c].[CompanyId] = @__id_0
+2025-11-19 00:53:57.527 +02:00 [INF] Company with Id="48c8cb64-3538-489d-8b51-5e1781c6c238" fetched successfully
+2025-11-19 00:53:57.537 +02:00 [INF] Executing OkObjectResult, writing value of type 'TradHub.Core.Dtos.CompanyDto'.
+2025-11-19 00:53:57.545 +02:00 [INF] Executed action TradeHub.Controllers.CompanyController.GetCompanyById (TradeHub) in 240.53ms
+2025-11-19 00:53:57.547 +02:00 [INF] Executed endpoint 'TradeHub.Controllers.CompanyController.GetCompanyById (TradeHub)'
+2025-11-19 00:53:57.549 +02:00 [INF] HTTP GET /api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 responded 200 in 273.8756 ms
+2025-11-19 00:53:57.552 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5161/api/company/48c8cb64-3538-489d-8b51-5e1781c6c238 - 200 null application/json; charset=utf-8 281.333ms

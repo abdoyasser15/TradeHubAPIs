@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{002858BE-D56B-4F3C-9F3E-BC28F1A9A7FC}|TradeHub.Service\\TradeHub.Service.csproj|f:\\study\\backend\\eng ahmed nasr\\08 asp.net core web apis\\tradehub\\tradehub.service\\productattributeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{002858BE-D56B-4F3C-9F3E-BC28F1A9A7FC}|TradeHub.Service\\TradeHub.Service.csproj|solutionrelative:tradehub.service\\productattributeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|f:\\study\\backend\\eng ahmed nasr\\08 asp.net core web apis\\tradehub\\tradehub\\controllers\\productattributecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|solutionrelative:tradehub\\controllers\\productattributecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|f:\\study\\backend\\eng ahmed nasr\\08 asp.net core web apis\\tradehub\\tradehub\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|solutionrelative:tradehub\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,12 +27,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ProductAttributeService.cs",
+              "DocumentMoniker": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub.Service\\ProductAttributeService.cs",
+              "RelativeDocumentMoniker": "TradeHub.Service\\ProductAttributeService.cs",
+              "ToolTip": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub.Service\\ProductAttributeService.cs",
+              "RelativeToolTip": "TradeHub.Service\\ProductAttributeService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAmwJsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T22:58:36.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductAttributeController.cs",
+              "DocumentMoniker": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\Controllers\\ProductAttributeController.cs",
+              "RelativeDocumentMoniker": "TradeHub\\Controllers\\ProductAttributeController.cs",
+              "ToolTip": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\Controllers\\ProductAttributeController.cs",
+              "RelativeToolTip": "TradeHub\\Controllers\\ProductAttributeController.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAqwGQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T22:58:17.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CompanyController.cs",
               "DocumentMoniker": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\Controllers\\CompanyController.cs",
               "RelativeDocumentMoniker": "TradeHub\\Controllers\\CompanyController.cs",
               "ToolTip": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\Controllers\\CompanyController.cs",
               "RelativeToolTip": "TradeHub\\Controllers\\CompanyController.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAA5wKAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAgwKAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T20:09:50.043Z",
               "EditorCaption": ""
