@@ -182,29 +182,6 @@ namespace TradeHub.Controllers
             Response.Cookies.Delete("refreshToken");
             return Ok(new ApiResponse(200, "Logged out successfully"));
         }
-        [HttpPost("forgot-password")]
-        public async Task<ActionResult> ForgotPassword([FromBody] ForgotPasswordDto model)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var user = await _userManager.FindByEmailAsync(model.Email);
-
-            if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
-            {
-                return Ok(new { message = "If the email is registered, a reset link has been sent." });
-            }
-
-            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-
-            var resetLink = Url.Action(
-                action: "ResetPassword", 
-                controller: "Account",    
-                values: new { token, email = user.Email },
-                protocol: Request.Scheme 
-            );
-            return Ok(new { message = "Reset link sent to your email." });
-        }
         [HttpPost("reset-password")]
         public async Task<ActionResult> ResetPassword([FromBody] ResetPasswordDto model)
         {

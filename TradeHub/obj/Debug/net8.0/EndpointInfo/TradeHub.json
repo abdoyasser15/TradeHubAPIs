@@ -277,37 +277,6 @@
         }
       }
     },
-    "/api/Account/forgot-password": {
-      "post": {
-        "tags": [
-          "Account"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ForgotPasswordDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ForgotPasswordDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ForgotPasswordDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Account/reset-password": {
       "post": {
         "tags": [
@@ -2458,20 +2427,6 @@
           "accessToken": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ForgotPasswordDto": {
-        "required": [
-          "email"
-        ],
-        "type": "object",
-        "properties": {
-          "email": {
-            "minLength": 1,
-            "type": "string",
-            "format": "email"
           }
         },
         "additionalProperties": false

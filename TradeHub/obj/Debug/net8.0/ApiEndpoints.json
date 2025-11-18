@@ -95,22 +95,6 @@
   },
   {
     "ContainingType": "TradeHub.Controllers.AccountController",
-    "Method": "ForgotPassword",
-    "RelativePath": "api/Account/forgot-password",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "TradHub.Core.Dtos.ForgotPasswordDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TradeHub.Controllers.AccountController",
     "Method": "LoginWithGoogle",
     "RelativePath": "api/Account/google",
     "HttpMethod": "POST",
