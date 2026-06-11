@@ -9,8 +9,9 @@ namespace TradHub.Core.Service_Contract
 {
     public interface ICompanyCategoryService
     {
-        Task<IReadOnlyList<CompanyCategoryDto>> GetByCompanyIdAsync(Guid companyId);
+        Task<IReadOnlyList<CompanyCategoryDto>> GetByCompanyIdAsync(string companyId);
         Task<bool> AddAsync(CompanyCategoryCreateDto dto);
         Task<bool> RemoveAsync(Guid companyId, int categoryId);
+        Task<IReadOnlyList<CompanyCategoryDto>> GetAllCompaniesByCategoryIdAsync(int categoryId);
     }
 }

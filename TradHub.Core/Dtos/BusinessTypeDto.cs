@@ -8,6 +8,7 @@ namespace TradHub.Core.Dtos
 {
     public class BusinessTypeDto
     {
+        public int Id { get; set; }
         public string BusinessName { get; set; }
         public bool IsActive { get; set; }
     }

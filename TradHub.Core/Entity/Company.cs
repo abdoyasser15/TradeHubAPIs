@@ -16,12 +16,13 @@ namespace TradHub.Core.Entity
         public string TaxNumber { get; set; }
         public int LocationId { get; set; }
         public Location Location { get; set; }
-        public string LogoUrl { get; set; }
+        public string? LogoUrl { get; set; }
         public string CreatedById { get; set; }
         public AppUser CreatedBy { get; set; }
         public ICollection<AppUser> Staff { get; set; } = new List<AppUser>();
         public ICollection<CompanyCategory> CompanyCategories { get; set; } = new List<CompanyCategory>();
         public ICollection<Product> Products { get; set; } = new List<Product>();
+        public ICollection<CompanyRatings> CompanyRatings { get; set; } = new HashSet<CompanyRatings>();
 
     }
 }

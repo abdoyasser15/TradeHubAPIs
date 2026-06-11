@@ -7,6 +7,7 @@ using TradeHub.Service;
 using TradHub.Core;
 using TradHub.Core.Repository_Contract;
 using TradHub.Core.Service_Contract;
+using TradHub.Core.Settings;
 
 namespace TradeHub.Extenstion
 {
@@ -23,14 +24,25 @@ namespace TradeHub.Extenstion
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             services.AddScoped<IOtpService, OtpService>();
             services.AddScoped<INotificationService, NotificationService>();
-            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ISubCategoryService, SubCategoryService>();
             services.AddScoped<ICompanyCategoryService, CompanyCategoryService>();
             services.AddScoped<ICategoryAttributeService, CategoryAttributeService>();
             services.AddScoped<IProductAttributeService, ProductAttributeService>();
             services.AddScoped<ILoggerManager, LoggerManager>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IBasketService, BasketService>();
+            services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<IProductRatingService, ProductRatingService>();
+            services.AddScoped<IProductOptionsService, ProductOptionService>();
+
+            services.AddScoped<INotificationServiceRealTime, NotificationServiceRealTime>();
+            services.AddHttpContextAccessor();
 
 
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddHttpClient<IPaymentGatewayService, PaymobPaymentGatewayService>();
             services.AddSingleton(typeof(IResponseCashService), typeof(ResponseCasheService));
+
 
             services.Configure<ApiBehaviorOptions>(Options =>
             {

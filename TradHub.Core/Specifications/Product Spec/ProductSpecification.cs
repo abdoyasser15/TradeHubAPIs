@@ -1,63 +1,70 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using StackExchange.Redis;
 using TradHub.Core.Entity;
+using TradHub.Core.Specifications;
+using TradHub.Core.Specifications.Product_Spec;
 
-namespace TradHub.Core.Specifications.Product_Spec
+public class ProductSpecification : BaseSpecification<Product>
 {
-    public class ProductSpecification : BaseSpecification<Product>
-    {
-        public ProductSpecification(ProductSpecParams Spec)
-            : base(P =>
-            (string.IsNullOrEmpty(Spec.Search) || (P.Name.ToLower().Contains(Spec.Search) || P.Description!.ToLower().Contains(Spec.Search)))
+    public ProductSpecification(ProductSpecParams spec)
+        : base(p =>
+            (string.IsNullOrEmpty(spec.Search) ||
+             ((p.Name != null && p.Name.ToLower().Contains(spec.Search.ToLower())) ||
+              (p.Description != null && p.Description.ToLower().Contains(spec.Search.ToLower()))))
             &&
-            (!Spec.categoryId.HasValue || P.CategoryId == Spec.categoryId) &&
-            (!Spec.CompanyId.HasValue || P.CompanyId == Spec.CompanyId)
+            (!spec.categoryId.HasValue || p.SubCategoryId == spec.categoryId)
+            &&
+            (!spec.CompanyId.HasValue || p.CompanyId == spec.CompanyId)
         )
+    {
+        AddIncludes();
+
+        if (!string.IsNullOrEmpty(spec.Sort))
         {
-            AddIncludes();
-            if (!string.IsNullOrEmpty(Spec.Sort))
+            switch (spec.Sort)
             {
-                switch (Spec.Sort)
-                {
-                    case "priceasc":
-                        AddOrderBy(p => p.Price);
-                        break;
-                    case "pricedesc":
-                        AddOrderByDescending(p => p.Price);
-                        break;
-                    case "raitingdesc":
-                        AddOrderByDescending(p =>
-                            p.ProductRaitings.Any()
-                                ? p.ProductRaitings.Average(r => r.RaitingValue)
-                                : 0);
-                        break;
-                    default:
-                        AddOrderBy(P=>P.Name);
-                        break;
-                }
+                case "priceasc":
+                    AddOrderBy(p => p.Price);
+                    break;
+
+                case "pricedesc":
+                    AddOrderByDescending(p => p.Price);
+                    break;
+
+                case "raitingdesc":
+                    AddOrderByDescending(p =>
+                        p.ProductRatings.Any()
+                            ? p.ProductRatings.Average(r => r.RaitngValue)
+                            : 0);
+                    break;
+
+                default:
+                    AddOrderBy(p => p.Name);
+                    break;
             }
-            ApplyPaging(Spec.PageSize * (Spec.pageIndex - 1), Spec.PageSize);
-            ApplyNoTracking();
         }
-        public ProductSpecification(int productId)
-            :base(P=>P.Id==productId)
+        else
         {
-            AddIncludes();
+            AddOrderBy(p => p.Name);
         }
-        private void AddIncludes()
-        {
-            Include.Add(p => p.Category);
-            Include.Add(p => p.Company);
-            Include.Add(p => p.ProductAttributes);
-            ThenInclude();
-            Include.Add(P=>P.ProductRaitings);
-        }
-        private void ThenInclude()
-        {
-            IncludeStrings.Add($"{nameof(Product.ProductAttributes)}.{nameof(ProductAttribute.CategoryAttribute)}");
-        }
+
+        ApplyPaging(spec.PageSize * (spec.pageIndex - 1), spec.PageSize);
+        ApplyNoTracking();
+    }
+
+    public ProductSpecification(int productId)
+        : base(p => p.Id == productId)
+    {
+        AddIncludes();
+    }
+
+    private void AddIncludes()
+    {
+        Include.Add(p => p.SubCategory);
+        Include.Add(p => p.Company);
+        Include.Add(p => p.ProductAttributes);
+        Include.Add(p => p.ProductRatings);
+        Include.Add(p => p.Favourites);
+
+        IncludeStrings.Add($"{nameof(Product.ProductAttributes)}.{nameof(ProductAttribute.CategoryAttribute)}");
     }
 }

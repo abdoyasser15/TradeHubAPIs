@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -34,9 +35,11 @@ namespace TradeHub.Service
                 LastName = user.LastName,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
-                Roles = roles.ToList()
+                Roles = roles.ToList(),
+                profilePicture = user.ProfilePictureUrl!
             };
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IReadOnlyList<ReturnUserDto?>> GetAllUsersAsync()
         {
             var users = await _userManager.Users.Where(a=>a.AccountType==AccountType.Individual)
@@ -51,7 +54,8 @@ namespace TradeHub.Service
                     LastName = user.LastName,
                     Email = user.Email,
                     PhoneNumber = user.PhoneNumber,
-                    Roles = roles.ToList()
+                    Roles = roles.ToList(),
+                    profilePicture = user.ProfilePictureUrl!
                 });
             }
             return result;

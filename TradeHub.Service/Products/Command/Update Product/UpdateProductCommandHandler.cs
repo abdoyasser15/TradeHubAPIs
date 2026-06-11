@@ -11,57 +11,79 @@ using TradHub.Core.Service_Contract;
 
 namespace TradeHub.Service.Products.Command.Update_Product
 {
-    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, bool>
+    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILoggerManager _logger;
+        private readonly IImageService _imageService;
 
-        public UpdateProductCommandHandler(IUnitOfWork unitOfWork , ILoggerManager logger)
+        public UpdateProductCommandHandler(IUnitOfWork unitOfWork , ILoggerManager logger,IImageService imageService)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
+            _imageService = imageService;
         }
-        public async Task<bool> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
-            try
-            {
-                _logger.LogInfo("Updating product with Id={Id}", request.Id);
+            _logger.LogInfo("Updating product with Id={Id}", request.Id);
 
-                var product = await _unitOfWork.Repository<Product>().GetById(request.Id);
-                if (product == null)
-                {
-                    _logger.LogWarn("Product with Id={Id} not found", request.Id);
-                    return false;
-                }
-                if (request.ProductDto.CategoryId > 0)
-                {
-                    var cat = await _unitOfWork.Repository<Category>().GetById(request.ProductDto.CategoryId);
-                    if (cat is null)
-                        throw new ArgumentException("Invalid CategoryId");
-                }
-                var UpdatedProduct = request.ProductDto;
-                product.Name = UpdatedProduct.Name;
-                product.Description = UpdatedProduct.Description;
-                product.Price = UpdatedProduct.Price;
-                product.Quantity = UpdatedProduct.Quantity;
-                product.ImageUrl = UpdatedProduct.ImageUrl;
-                product.CategoryId = UpdatedProduct.CategoryId;
-                product.IsActive = UpdatedProduct.IsActive;
-                product.CompanyId = UpdatedProduct.CompanyId;
-                _unitOfWork.Repository<Product>().Update(product);
-                var result = await _unitOfWork.CompleteAsync() > 0;
-                return result;
-            }
-            catch(ArgumentException ex)
+            var product = await _unitOfWork.Repository<Product>().GetById(request.Id);
+
+            if (product is null)
             {
-                _logger.LogError(ex, "Validation error while updating product with Id={Id}", request.Id);
-                throw;
+                _logger.LogWarn("Product with Id={Id} not found", request.Id);
+                throw new KeyNotFoundException($"Product with Id {request.Id} not found");
             }
-            catch(Exception ex)
+
+            var dto = request.ProductDto;
+
+            if (dto.CategoryId > 0)
             {
-                _logger.LogError(ex, "Error occurred while updating product with Id={Id}", request.Id);
-                throw;
+                var categoryExists = await _unitOfWork.Repository<SubCategory>()
+                    .GetById(dto.CategoryId);
+
+                if (categoryExists is null)
+                    throw new ArgumentException("Invalid CategoryId");
             }
+
+            if (dto.CompanyId != Guid.Empty)
+            {
+                var companyExists = await _unitOfWork.Repository<Company>()
+                    .GetById(dto.CompanyId);
+
+                if (companyExists is null)
+                    throw new ArgumentException("Invalid CompanyId");
+            }
+
+            product.Name = dto.Name;
+            product.Description = dto.Description;
+            product.Price = dto.Price;
+            product.Quantity = dto.Quantity;
+            product.SubCategoryId = dto.CategoryId;
+            product.IsActive = dto.IsActive;
+            product.CompanyId = dto.CompanyId;
+
+            if (dto.ImageUrl is not null)
+            {
+                if (!string.IsNullOrWhiteSpace(product.ImageUrl))
+                {
+                    _imageService.DeleteImage(product.ImageUrl);
+                }
+
+                product.ImageUrl = await _imageService.UploadImageAsync(
+                    dto.ImageUrl,
+                    "images/products"
+                );
+            }
+
+            _unitOfWork.Repository<Product>().Update(product);
+
+            var affectedRows = await _unitOfWork.CompleteAsync();
+
+            if (affectedRows <= 0)
+                throw new InvalidOperationException("Update operation failed");
+
+            _logger.LogInfo("Product with Id={Id} updated successfully", request.Id);
         }
     }
 }

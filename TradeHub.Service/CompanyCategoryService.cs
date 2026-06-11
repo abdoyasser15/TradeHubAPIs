@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace TradeHub.Service
             if (company is null)
                 throw new ApiValidationException(new[] { "Company not found" });
 
-            var category = await _unitOfWork.Repository<Category>().GetById(dto.CategoryId);
+            var category = await _unitOfWork.Repository<SubCategory>().GetById(dto.CategoryId);
             if (category is null)
                 throw new ApiValidationException(new[] { "Category not found" });
             var exists = await _unitOfWork.Repository<CompanyCategory>()
@@ -44,7 +45,30 @@ namespace TradeHub.Service
             await _unitOfWork.CompleteAsync();
             return true;
         }
-        public async Task<IReadOnlyList<CompanyCategoryDto>> GetByCompanyIdAsync(Guid companyId)
+        public async Task<IReadOnlyList<CompanyCategoryDto>> GetAllCompaniesByCategoryIdAsync(int categoryId)
+        {
+            var spec = new CompanyCategoryByCategoryIdSpecification(categoryId);
+
+            var companyCategories = await _unitOfWork.Repository<CompanyCategory>()
+                .GetAllSpecificationsAsync(spec);
+
+            var dtos = companyCategories
+                .Select(cc => new CompanyCategoryDto
+                {
+                    CompanyId = cc.CompanyId.ToString(),
+                    CompanyName = cc.Company.BusinessName,
+                    TaxNumber = cc.Company.TaxNumber,
+                    BusinessTypeName = cc.Company.BusinessType.Name,
+                    LocationName = cc.Company.Location.Name,
+                    LogoUrl = cc.Company.LogoUrl!,
+                    CategoryName = cc.Category.Name
+                })
+                .ToList();
+
+            return dtos;
+        }
+
+        public async Task<IReadOnlyList<CompanyCategoryDto>> GetByCompanyIdAsync(string companyId)
         {
             var spec = new CompanyCategoryByCompanyIdSpecification(companyId);
             var companyCategories = await _unitOfWork.Repository<CompanyCategory>()
@@ -65,7 +89,7 @@ namespace TradeHub.Service
             if (company is null)
                 throw new ApiValidationException(new[] { "Company not found" });
 
-            var category = await _unitOfWork.Repository<Category>().GetById(categoryId);
+            var category = await _unitOfWork.Repository<SubCategory>().GetById(categoryId);
             if (category is null)
                 throw new ApiValidationException(new[] { "Category not found" });
 

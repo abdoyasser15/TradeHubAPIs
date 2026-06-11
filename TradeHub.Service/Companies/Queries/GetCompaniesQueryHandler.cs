@@ -43,7 +43,41 @@ namespace TradeHub.Service.Companies.Queries
 
                 _logger.LogInfo("Fetched {Count} companies from DB", companies.Count);
 
-                var mappedCompanies = _mapper.Map<List<CompanyDto>>(companies);
+                var mappedCompanies = companies.Select(c => new CompanyDto
+                {
+                    ID = c.CompanyId.ToString(),
+                    BusinessName = c.BusinessName,
+                    LogoUrl = c.LogoUrl,
+
+                    BusinessTypeId = c.BusinessTypeId,
+                    BusinessTypeName = c.BusinessType != null
+                        ? c.BusinessType.Name
+                        : null,
+
+                    CreatedById = string.IsNullOrEmpty(c.CreatedById)
+                    ? null
+                    : c.CreatedById,
+
+                    LocationId = c.LocationId,
+                    LocationName = c.Location != null
+                        ? c.Location.Name
+                        : null,
+
+                    AverageRating = c.CompanyRatings.Any()
+                        ? c.CompanyRatings.Average(r => r.RatingValue)
+                        : 0,
+
+                    RatingCount = c.CompanyRatings.Count(),
+
+                    Categories = c.CompanyCategories != null
+                        ? c.CompanyCategories.Select(cc => new CategoryDto
+                        {
+                            Id = cc.CategoryId,
+                            Name = cc.Category != null ? cc.Category.Name : null
+                        }).ToList()
+                        : new List<CategoryDto>()
+
+                }).ToList();
 
                 return new Pagination<CompanyDto>(
                     request.SpecParams.pageIndex,

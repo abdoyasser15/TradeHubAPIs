@@ -13,12 +13,19 @@ namespace TradeHub.Repository.Data.Config
     {
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
-            builder.Property(a=>a.FirstName).HasMaxLength(50).IsRequired();
-            builder.Property(a=>a.LastName).HasMaxLength(50).IsRequired();
+            builder.Property(a=>a.FirstName).HasMaxLength(50).IsRequired(false);
+            builder.Property(a=>a.LastName).HasMaxLength(50).IsRequired(false);
             builder.Property(a=>a.Email).HasMaxLength(100).IsRequired();
-            builder.Property(a=>a.PhoneNumber).HasMaxLength(11);
-            builder.Property(a=>a.PasswordHash).IsRequired();
-            
+            builder.Property(a=>a.PhoneNumber).HasMaxLength(11).IsRequired(false);
+            builder.Property(a=>a.PasswordHash).IsRequired(false);
+
+            builder.Property(x => x.PhoneNumber).IsRequired(false);
+            builder.Property(x => x.NormalizedEmail).IsRequired(false);
+            builder.Property(x => x.SecurityStamp).IsRequired(false);
+            builder.Property(x => x.ConcurrencyStamp).IsRequired(false);
+
+            builder.Ignore(x => x.FullName);
+
             builder.Property(a=>a.AccountType)
                 .HasConversion<int>()
                 .IsRequired();

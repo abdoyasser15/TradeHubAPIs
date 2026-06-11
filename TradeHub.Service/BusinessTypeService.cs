@@ -33,6 +33,7 @@ namespace TradeHub.Service
                 _logger.LogInfo("Fetched {businessCount} Business Types from the database.",business.Count);
                 return business.Select(b => new BusinessTypeDto
                 {
+                    Id = b.BusinessTypeId,
                     BusinessName = b.Name,
                     IsActive = b.IsActive
                 }).ToList();
@@ -66,6 +67,7 @@ namespace TradeHub.Service
                 _logger.LogInfo("Business Type with Id: {Id} fetched successfully", id);
                 return new BusinessTypeDto
                 {
+                    Id = business.BusinessTypeId,
                     BusinessName = business.Name,
                     IsActive = business.IsActive
                 };

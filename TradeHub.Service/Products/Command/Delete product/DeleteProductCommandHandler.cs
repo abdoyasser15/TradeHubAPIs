@@ -22,29 +22,29 @@ namespace TradeHub.Service.Products.Command.Delete_product
         }
         public async Task<bool> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
-            try
+            _logger.LogInfo("Attempting to delete product with Id={Id}", request.ID);
+
+            var product = await _unitOfWork
+                .Repository<Product>()
+                .GetById(request.ID);
+
+            if (product is null)
             {
-                _logger.LogInfo("Attempting to delete product with Id={Id}", request.ID);
-
-                var product = await _unitOfWork.Repository<Product>().GetById(request.ID);
-
-                if (product == null)
-                {
-                    _logger.LogWarn("Product with Id={Id} not found. Delete aborted.", request.ID);
-                    return false;
-                }
-                _unitOfWork.Repository<Product>().DeleteAsync(product);
-                var result = await _unitOfWork.CompleteAsync();
-                var success =  result > 0;
-                _logger.LogInfo("Delete operation for product Id={Id} success={Success}", request.ID, success);
-                return success;
-
+                _logger.LogWarn("Product with Id={Id} not found. Delete aborted.", request.ID);
+                throw new KeyNotFoundException($"Product with Id {request.ID} not found");
             }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error occurred while deleting product with Id={Id}", request.ID);
-                throw;
-            }
+
+                 _unitOfWork
+                .Repository<Product>()
+                .DeleteAsync(product);
+
+            var affectedRows = await _unitOfWork.CompleteAsync();
+
+            if (affectedRows <= 0)
+                throw new InvalidOperationException("Delete operation failed");
+
+            _logger.LogInfo("Product with Id={Id} deleted successfully", request.ID);
+            return true;
         }
     }
 }

@@ -11,8 +11,8 @@ namespace TradHub.Core.Repository_Contract
 {
     public interface IGenericRepository<T> where T : BaseEntity
     {
-        Task<T?> GetById(object id);
-        Task<IReadOnlyList<T>> GetAllAsync();
+        Task<T?> GetById(object id, params Expression<Func<T, object>>[] includes);
+        Task<IReadOnlyList<T>> GetAllAsync(params Expression<Func<T, object>>[] includes);
         Task<IReadOnlyList<T>> GetAllSpecificationsAsync(ISpecification<T> spec);
         Task<T?> GetWithSpecAsync(ISpecification<T> spec);
         Task<int> GetCountAsync(ISpecification<T> spec);

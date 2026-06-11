@@ -14,12 +14,16 @@ namespace TradHub.Core.Dtos
         public string ImageUrl { get; set; }
         public double Price { get; set; }
         public int Quantity { get; set; }
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
+        public int SubCategoryId { get; set; }
+        public string SubCategoryName { get; set; }
         public Guid CompanyId { get; set; }
         public string CompanyName { get; set; }
+        public string LogoUrl { get; set; }
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
         public List<productattributedto> Attributes { get; set; } = new List<productattributedto>();
         public double AverageRating { get; set; }
         public int RatingCount { get; set; }
+        public bool IsFavourite { get; set; }
     }
 }   

@@ -46,6 +46,10 @@ namespace TradHub.Core.Specifications.Company_Spec
         {
             Include.Add(c => c.BusinessType);
             Include.Add(c => c.Location);
+            Include.Add(c => c.CompanyRatings);
+
+            Include.Add(c => c.CompanyCategories);
+             IncludeStrings.Add($"{nameof(Company.CompanyCategories)}.{nameof(CompanyCategory.Category)}");
         }
     }
 }

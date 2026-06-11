@@ -18,6 +18,8 @@ namespace TradeHub.Repository.Data.Config
 
             builder.Property(c=>c.BusinessName).HasMaxLength(100).IsRequired();
 
+            builder.Property(c=>c.LogoUrl).IsRequired(false);
+
             builder.HasIndex(x=>x.BusinessName).IsUnique();
 
             builder.Property(c => c.TaxNumber).HasMaxLength(50);

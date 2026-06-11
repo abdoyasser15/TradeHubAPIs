@@ -15,15 +15,15 @@ namespace TradeHub.Controllers
             _companyCategoryService = companyCategoryService;
         }
         [HttpPost]
-        public async Task<ActionResult> AddCompanyCategory([FromBody]CompanyCategoryCreateDto dto)
+        public async Task<ActionResult> AddCompanyCategory([FromBody] CompanyCategoryCreateDto dto)
         {
             var result = await _companyCategoryService.AddAsync(dto);
             if (!result)
-                return BadRequest(new ApiResponse(400,"CompanyCategory already exists."));
+                return BadRequest(new ApiResponse(400, "CompanyCategory already exists."));
             return Ok("CompanyCategory added Successfully");
         }
         [HttpGet("{companyId}")]
-        public async Task<ActionResult<IReadOnlyList<CompanyCategoryDto>>> GetCompanyCategoriesByCompanyId(Guid companyId)
+        public async Task<ActionResult<IReadOnlyList<CompanyCategoryDto>>> GetCompanyCategoriesByCompanyId(string companyId)
         {
             var companyCategories = await _companyCategoryService.GetByCompanyIdAsync(companyId);
             return Ok(companyCategories);
@@ -34,7 +34,13 @@ namespace TradeHub.Controllers
             var result = await _companyCategoryService.RemoveAsync(companyId, categoryId);
             if (!result)
                 return NotFound("CompanyCategory not found.");
-            return Ok(new ApiResponse(200,"CompanyCategory removed successfully."));
+            return Ok(new ApiResponse(200, "CompanyCategory removed successfully."));
+        }
+        [HttpGet("category/{categoryId}")]
+        public async Task<ActionResult<IReadOnlyList<CompanyCategoryDto>>> GetAllCompaniesByCategoryId(int categoryId)
+        {
+            var companyCategories = await _companyCategoryService.GetAllCompaniesByCategoryIdAsync(categoryId);
+            return Ok(companyCategories);
         }
     }
 }

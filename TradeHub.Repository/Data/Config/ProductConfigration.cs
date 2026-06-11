@@ -18,9 +18,9 @@ namespace TradeHub.Repository.Data.Config
                    .HasForeignKey(p => p.CompanyId)
                    .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(p => p.Category)
+            builder.HasOne(p => p.SubCategory)
                 .WithMany(c => c.Products)
-                .HasForeignKey(p => p.CategoryId)
+                .HasForeignKey(p => p.SubCategoryId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(p => p.Description)

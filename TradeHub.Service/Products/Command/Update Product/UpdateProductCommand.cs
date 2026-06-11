@@ -8,7 +8,7 @@ using TradHub.Core.Dtos;
 
 namespace TradeHub.Service.Products.Command.Update_Product
 {
-    public class UpdateProductCommand : IRequest<bool>
+    public class UpdateProductCommand : IRequest
     {
         public int Id { get; set; }
         public UpdateProductDto ProductDto { get; set; }

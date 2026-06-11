@@ -8,9 +8,10 @@ using TradHub.Core.Dtos;
 
 namespace TradeHub.Service.Companies.Command.Update_Company
 {
-    public class UpdateCompanyCommand : IRequest<CompanyToDto>
+    public class UpdateCompanyCommand : IRequest<CompanyDto?>
     {
         public Guid Id { get; set; }
-        public CompanyToDto Company { get; set; }
+
+        public UpdateCompanyDto Company { get; set; } = default!;
     }
 }

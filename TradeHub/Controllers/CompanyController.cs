@@ -24,9 +24,10 @@ namespace TradeHub.Controllers
         {
             _mediator = mediator;
         }
-        [Authorize(Roles = "Admin,CompanyOwner")]
+        [Authorize]
         [HttpPost]
-        public async Task<ActionResult<CompanyDto>> CreateCompany([FromBody] CompanyToDto dto)
+        [Consumes("multipart/form-data")]
+        public async Task<ActionResult<CompanyDto>> CreateCompany([FromForm] CreateCompanyDto dto)
         {
             try
             {
@@ -61,25 +62,24 @@ namespace TradeHub.Controllers
                 return StatusCode(500, new ApiResponse(500, "Something went wrong"));
             }
         }
-        [Authorize(Roles = "Admin,CompanyOwner")]
-        [HttpPut("{id:Guid}")]
-        public async Task<ActionResult<CompanyDto>> UpdateCompany(Guid id,[FromBody] CompanyToDto dto)
+        [Authorize]
+        [HttpPut("{id:guid}")]
+        public async Task<ActionResult<CompanyDto>> UpdateCompany(Guid id, [FromForm] UpdateCompanyDto dto)
         {
             try
             {
                 var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                if (User.IsInRole("CompanyOwner"))
+
+                var company = await _mediator.Send(new GetCompanyByIdQuery(id));
+
+                if (company is null)
+                    return NotFound(new ApiResponse(404, "Company Not Found"));
+
+                var result = await _mediator.Send(new UpdateCompanyCommand
                 {
-                    var company = await _mediator.Send(new GetCompanyByIdQuery(id));
-
-                    if (company is null)
-                        return NotFound(new ApiResponse(404, "Company Not Found"));
-
-                    if (company.CreatedById != userId)
-                        return Forbid();
-                }
-                var result = await _mediator.Send(new UpdateCompanyCommand { Id = id, Company = dto });
-                if (result is null) return NotFound(new ApiResponse(404, "Company Not Found"));
+                    Id = id,
+                    Company = dto
+                });
                 return Ok(result);
             }
             catch (Exception)
@@ -101,7 +101,6 @@ namespace TradeHub.Controllers
                 return StatusCode(500, new ApiResponse(500, "Something went wrong"));
             }
         }
-        [Authorize(Roles = "Admin,CompanyOwner")]
         [HttpGet("{id:Guid}")]
         public async Task<ActionResult<CompanyDto>> GetCompanyById(Guid id)
         {
@@ -116,7 +115,6 @@ namespace TradeHub.Controllers
                 return StatusCode(500, new { message = "Something went wrong." });
             }
         }
-        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<CompanyDto>>> GetCompanies([FromQuery] CompanySpecificationParams specParams)
         {
@@ -130,7 +128,6 @@ namespace TradeHub.Controllers
                 return StatusCode(500, new { message = "Something went wrong." });
             }
         }
-        [Authorize(Roles = "Admin")]
         [HttpGet("user/{UserId}/companies")]
         public async Task<ActionResult<IReadOnlyList<CompanyDto>>> GetCompaniesByUserId(string UserId)
         {
@@ -140,20 +137,6 @@ namespace TradeHub.Controllers
                 if (companies == null || !companies.Any())
                     return NotFound(new ApiResponse(404, "No Companies Found for the Given User"));
                 return Ok(companies);
-            }
-            catch (Exception) {
-                return StatusCode(500, new { message = "Something went wrong." });
-            }
-        }
-        [Authorize(Roles = "Admin,CompanyOwner")]
-        [HttpPut("{companyId:Guid}/logo")]
-        public async Task<ActionResult> UpdateCompanyLogo(Guid companyId, [FromBody] LogoDto logoUrl)
-        {
-            try
-            {
-                var result = await _mediator.Send(new UpdateCompanyLogoCommand(companyId, logoUrl.LogoUrl));
-                if (!result) return NotFound(new ApiResponse(404, "Company Not Found"));
-                return Ok(new ApiResponse(200, "Company Logo Updated Successfully"));
             }
             catch (Exception) {
                 return StatusCode(500, new { message = "Something went wrong." });

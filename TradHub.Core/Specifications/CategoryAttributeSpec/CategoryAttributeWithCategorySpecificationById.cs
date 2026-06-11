@@ -16,7 +16,7 @@ namespace TradHub.Core.Specifications.CategoryAttributeSpec
         }
         private void AddIncludes()
         {
-            Include.Add(C => C.Category);
+            Include.Add(C => C.SubCategory);
         }
     }
 }

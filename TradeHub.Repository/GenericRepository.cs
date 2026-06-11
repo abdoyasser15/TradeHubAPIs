@@ -25,8 +25,20 @@ namespace TradeHub.Repository
         public void DeleteAsync(T entity)
             =>  _context.Remove(entity);
 
-        public async Task<IReadOnlyList<T>> GetAllAsync()
-            => await _context.Set<T>().ToListAsync();
+        public async Task<IReadOnlyList<T>> GetAllAsync(params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = _context.Set<T>();
+
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+
+            return await query.ToListAsync();
+        }
         public async Task<IReadOnlyList<T>> GetAllSpecificationsAsync(ISpecification<T> spec)
         {
             return await ApplySpecifications(spec).ToListAsync();
@@ -41,7 +53,7 @@ namespace TradeHub.Repository
         {
             return await ApplySpecifications(spec).CountAsync();
         }
-        public async Task<T?> GetById(object id)
+        public async Task<T?> GetById(object id, params Expression<Func<T, object>>[] includes)
         {
             var keyName = _context.Model.FindEntityType(typeof(T))
                                .FindPrimaryKey()
@@ -49,8 +61,17 @@ namespace TradeHub.Repository
                                .Select(x => x.Name)
                                .Single();
 
-            return await _context.Set<T>()
-                .FirstOrDefaultAsync(e => EF.Property<object>(e, keyName).Equals(id));
+            IQueryable<T> query = _context.Set<T>();
+
+            if (includes != null && includes.Any())
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+
+            return await query.FirstOrDefaultAsync(e => EF.Property<object>(e, keyName).Equals(id));
         }
         public async void Update(T entity)
           =>  _context.Set<T>().Update(entity); 

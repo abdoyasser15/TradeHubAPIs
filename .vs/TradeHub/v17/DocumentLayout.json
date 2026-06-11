@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{002858BE-D56B-4F3C-9F3E-BC28F1A9A7FC}|TradeHub.Service\\TradeHub.Service.csproj|f:\\study\\backend\\eng ahmed nasr\\08 asp.net core web apis\\tradehub\\tradehub.service\\productattributeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{002858BE-D56B-4F3C-9F3E-BC28F1A9A7FC}|TradeHub.Service\\TradeHub.Service.csproj|solutionrelative:tradehub.service\\productattributeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|f:\\study\\backend\\eng ahmed nasr\\08 asp.net core web apis\\tradehub\\tradehub\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|solutionrelative:tradehub\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|f:\\study\\backend\\eng ahmed nasr\\08 asp.net core web apis\\tradehub\\tradehub\\controllers\\productattributecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|solutionrelative:tradehub\\controllers\\productattributecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|f:\\study\\backend\\eng ahmed nasr\\08 asp.net core web apis\\tradehub\\tradehub\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|solutionrelative:tradehub\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|f:\\study\\backend\\eng ahmed nasr\\08 asp.net core web apis\\tradehub\\tradehub\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5675B56C-77C8-42DF-ADC6-056F17F5EB7B}|TradeHub\\TradeHub.csproj|solutionrelative:tradehub\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{002858BE-D56B-4F3C-9F3E-BC28F1A9A7FC}|TradeHub.Service\\TradeHub.Service.csproj|f:\\study\\backend\\eng ahmed nasr\\08 asp.net core web apis\\tradehub\\tradehub.service\\basketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{002858BE-D56B-4F3C-9F3E-BC28F1A9A7FC}|TradeHub.Service\\TradeHub.Service.csproj|solutionrelative:tradehub.service\\basketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80975F03-C6CB-48BB-A5C7-736770FBE8E6}|TradHub.Core\\TradHub.Core.csproj|f:\\study\\backend\\eng ahmed nasr\\08 asp.net core web apis\\tradehub\\tradhub.core\\dtos\\basketitemoptionsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80975F03-C6CB-48BB-A5C7-736770FBE8E6}|TradHub.Core\\TradHub.Core.csproj|solutionrelative:tradhub.core\\dtos\\basketitemoptionsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{002858BE-D56B-4F3C-9F3E-BC28F1A9A7FC}|TradeHub.Service\\TradeHub.Service.csproj|f:\\study\\backend\\eng ahmed nasr\\08 asp.net core web apis\\tradehub\\tradehub.service\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{002858BE-D56B-4F3C-9F3E-BC28F1A9A7FC}|TradeHub.Service\\TradeHub.Service.csproj|solutionrelative:tradehub.service\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +35,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductAttributeService.cs",
-              "DocumentMoniker": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub.Service\\ProductAttributeService.cs",
-              "RelativeDocumentMoniker": "TradeHub.Service\\ProductAttributeService.cs",
-              "ToolTip": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub.Service\\ProductAttributeService.cs",
-              "RelativeToolTip": "TradeHub.Service\\ProductAttributeService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAmwJsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T22:58:36.55Z",
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "TradeHub\\appsettings.Development.json",
+              "ToolTip": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\appsettings.Development.json",
+              "RelativeToolTip": "TradeHub\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-11T17:54:24.053Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProductAttributeController.cs",
-              "DocumentMoniker": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\Controllers\\ProductAttributeController.cs",
-              "RelativeDocumentMoniker": "TradeHub\\Controllers\\ProductAttributeController.cs",
-              "ToolTip": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\Controllers\\ProductAttributeController.cs",
-              "RelativeToolTip": "TradeHub\\Controllers\\ProductAttributeController.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAqwGQAAAAJAAAAAAAAAA==",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\appsettings.json",
+              "RelativeDocumentMoniker": "TradeHub\\appsettings.json",
+              "ToolTip": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\appsettings.json",
+              "RelativeToolTip": "TradeHub\\appsettings.json",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACkAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-11T17:06:49.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BasketItemOptionsDto.cs",
+              "DocumentMoniker": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradHub.Core\\Dtos\\BasketItemOptionsDto.cs",
+              "RelativeDocumentMoniker": "TradHub.Core\\Dtos\\BasketItemOptionsDto.cs",
+              "ToolTip": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradHub.Core\\Dtos\\BasketItemOptionsDto.cs",
+              "RelativeToolTip": "TradHub.Core\\Dtos\\BasketItemOptionsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T22:58:17.1Z",
+              "WhenOpened": "2026-06-10T12:55:47.457Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CompanyController.cs",
-              "DocumentMoniker": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\Controllers\\CompanyController.cs",
-              "RelativeDocumentMoniker": "TradeHub\\Controllers\\CompanyController.cs",
-              "ToolTip": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub\\Controllers\\CompanyController.cs",
-              "RelativeToolTip": "TradeHub\\Controllers\\CompanyController.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAgwKAAAAAJAAAAAAAAAA==",
+              "Title": "BasketService.cs",
+              "DocumentMoniker": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub.Service\\BasketService.cs",
+              "RelativeDocumentMoniker": "TradeHub.Service\\BasketService.cs",
+              "ToolTip": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub.Service\\BasketService.cs",
+              "RelativeToolTip": "TradeHub.Service\\BasketService.cs",
+              "ViewState": "AgIAAOIAAAAAAAAAAAAwwPYAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T20:09:50.043Z",
+              "WhenOpened": "2026-06-10T12:54:37.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub.Service\\OrderService.cs",
+              "RelativeDocumentMoniker": "TradeHub.Service\\OrderService.cs",
+              "ToolTip": "F:\\study\\backend\\Eng Ahmed Nasr\\08 ASP.NET Core Web APIs\\TradeHub\\TradeHub.Service\\OrderService.cs",
+              "RelativeToolTip": "TradeHub.Service\\OrderService.cs",
+              "ViewState": "AgIAALAAAAAAAAAAAAAYwMEAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-10T12:39:55.601Z",
               "EditorCaption": ""
             }
           ]

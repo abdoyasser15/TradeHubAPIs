@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using Microsoft.Identity.Client;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.Data;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text.Json;
 using TradeHub.DTOs;
@@ -38,13 +40,15 @@ namespace TradeHub.Controllers
         private readonly ITokenService _tokenService;
         private readonly IConfiguration _configuration;
         private readonly IOtpService _otpService;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly AppDbContext _context;
 
         public AccountController(IAuthService authService, 
             UserManager<AppUser> userManager , 
             SignInManager<AppUser> signInManager, 
             ITokenService tokenService , 
             IConfiguration configuration,
-            IOtpService otpService)
+            IOtpService otpService,RoleManager<IdentityRole> roleManager,AppDbContext context)
         {
             _authService = authService;
             _userManager = userManager;
@@ -52,6 +56,8 @@ namespace TradeHub.Controllers
             _tokenService = tokenService;
             _configuration = configuration;
             _otpService = otpService;
+            _roleManager = roleManager;
+            _context = context;
         }
         [HttpPost("login")]
         public async Task<ActionResult> Login([FromBody] LoginDto model)
@@ -64,6 +70,7 @@ namespace TradeHub.Controllers
                 return Unauthorized(new ApiResponse(401, "Please confirm your email before logging in."));
 
             var result = await _signInManager.CheckPasswordSignInAsync(existingUser, model.Password, true);
+
             if (result.IsLockedOut)
                 return StatusCode(423, new ApiResponse(423, "User Account is Locked"));
 
@@ -72,10 +79,13 @@ namespace TradeHub.Controllers
             var user = existingUser.AccountType == AccountType.Business
                 ? await _authService.LoginInBusiness(existingUser)
                 : await _authService.LoginInIndividual(existingUser);
+
             if (user is null)
                 return Unauthorized(new ApiResponse(401, "Problem Logging In"));
+
             if(!string.IsNullOrEmpty(user.RefreshToken))
                 setRefreshTokenInCookie(user.RefreshToken, user.RefreshTokenExpiration);
+
             return Ok(user);
         }
         [HttpPost("register")]
@@ -246,6 +256,7 @@ namespace TradeHub.Controllers
         public async Task<ActionResult<UserIndividualDto>> LoginWithGoogle([FromBody] GoogleLoginDto dto)
         {
             var googleUser = await GetGoogleUserAsync(dto.AccessToken);
+
             if (googleUser is null)
                 return Unauthorized("Invalid Google token");
 
@@ -264,6 +275,7 @@ namespace TradeHub.Controllers
                     Role = UserRole.User,
                     EmailConfirmed = true,
                     LoginProvider = "Google",
+                    PasswordHash = _userManager.PasswordHasher.HashPassword(null, Guid.NewGuid().ToString()) // Set a random password since it's required by Identity
                 };
                 await _userManager.CreateAsync(user);
                 await _userManager.AddToRoleAsync(user, user.Role.ToString());
@@ -281,12 +293,20 @@ namespace TradeHub.Controllers
         private async Task<GoogleUserInfo?> GetGoogleUserAsync(string accessToken)
         {
             using var client = new HttpClient();
-            var response = await client.GetAsync($"https://www.googleapis.com/oauth2/v3/userinfo?access_token={accessToken}");
-            if (!response.IsSuccessStatusCode)
-                return null;
 
-            var json = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<GoogleUserInfo>(json);
+            client.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var response = await client.GetAsync("https://www.googleapis.com/oauth2/v3/userinfo");
+
+            var body = await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception($"Google userinfo failed: {(int)response.StatusCode} - {body}");
+            }
+
+            return JsonConvert.DeserializeObject<GoogleUserInfo>(body);
         }
 
         [HttpPost("facebook")]

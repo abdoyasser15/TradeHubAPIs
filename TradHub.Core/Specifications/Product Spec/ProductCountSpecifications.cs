@@ -11,9 +11,9 @@ namespace TradHub.Core.Specifications.Product_Spec
     {
         public ProductCountSpecifications(ProductSpecParams Spec)
             : base(P =>
-            (string.IsNullOrEmpty(Spec.Search) || (P.Name.ToLower().Contains(Spec.Search) || P.Description!.ToLower().Contains(Spec.Search)))
+            (string.IsNullOrEmpty(Spec.Search) || (P.Name!.ToLower().Contains(Spec.Search) || P.Description!.ToLower().Contains(Spec.Search)))
             &&
-            (!Spec.categoryId.HasValue || P.CategoryId == Spec.categoryId) &&
+            (!Spec.categoryId.HasValue || P.SubCategoryId == Spec.categoryId) &&
             (!Spec.CompanyId.HasValue || P.CompanyId == Spec.CompanyId)
         )
         {

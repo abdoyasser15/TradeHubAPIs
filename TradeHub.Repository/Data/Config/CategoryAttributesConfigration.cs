@@ -22,9 +22,9 @@ namespace TradeHub.Repository.Data.Config
                    .HasMaxLength(50);
             builder.Property(ca => ca.IsRequired)
                    .IsRequired();
-            builder.HasOne(ca => ca.Category)
+            builder.HasOne(ca => ca.SubCategory)
                   .WithMany(c => c.CategoryAttributes)
-                  .HasForeignKey(ca => ca.CategoryId)
+                  .HasForeignKey(ca => ca.SubCategoryId)
                   .OnDelete(DeleteBehavior.Restrict);
         }
     }

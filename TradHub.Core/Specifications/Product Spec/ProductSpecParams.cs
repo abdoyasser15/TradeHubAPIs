@@ -16,7 +16,6 @@ namespace TradHub.Core.Specifications.Product_Spec
         public int? categoryId { get; set; }
         public Guid? CompanyId { get; set; }
         public string? Sort { get; set; }
-
         public string? Search
         {
             get { return search; }

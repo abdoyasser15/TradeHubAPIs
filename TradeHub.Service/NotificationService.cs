@@ -28,7 +28,6 @@ namespace TradeHub.Service
         }
         private async Task SendEmailAsync(string to, string subject, string body)
         {
-            // ✅ تأكيد إن كل القيم مش null
             to ??= string.Empty;
             subject ??= "TradeHub Notification";
             body = $"Hello {to} Thank You for signing to TradeHub";

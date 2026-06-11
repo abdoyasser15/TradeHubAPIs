@@ -20,12 +20,14 @@ namespace TradeHub.Service.Companies.Command.Create_Company
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
+        private readonly IImageService _imageService;
 
-        public CreateCompanyCommandHandler(IUnitOfWork unitOfWork , ILoggerManager logger , IMapper mapper) 
+        public CreateCompanyCommandHandler(IUnitOfWork unitOfWork , ILoggerManager logger , IMapper mapper,IImageService imageService) 
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
             _mapper = mapper;
+            _imageService = imageService;
         }
 
         public async Task<CompanyToDto?> Handle(CreateCompanyCommand request, CancellationToken cancellationToken)
@@ -40,53 +42,44 @@ namespace TradeHub.Service.Companies.Command.Create_Company
                     .AnyAsync(l => l.Id == dto.LocationId);
 
                 if (!locationExists)
-                {
-                    _logger.LogWarn("Invalid LocationId: {Id}", dto.LocationId);
                     throw new ArgumentException($"LocationId '{dto.LocationId}' is invalid.");
-                }
 
                 var businessTypeExists = await _unitOfWork.Repository<BusinessType>()
                     .AnyAsync(bt => bt.BusinessTypeId == dto.BusinessTypeId);
 
                 if (!businessTypeExists)
-                {
-                    _logger.LogWarn("Invalid BusinessTypeId: {Id}", dto.BusinessTypeId);
                     throw new ArgumentException($"BusinessTypeId '{dto.BusinessTypeId}' is invalid.");
-                }
+
                 if (!string.IsNullOrEmpty(dto.TaxNumber))
                 {
                     var duplicateTax = await _unitOfWork.Repository<Company>()
                         .AnyAsync(c => c.TaxNumber == dto.TaxNumber);
 
                     if (duplicateTax)
-                    {
-                        _logger.LogWarn("Duplicate TaxNumber: {Tax}", dto.TaxNumber);
                         throw new DuplicateNameException($"TaxNumber '{dto.TaxNumber}' already exists.");
-                    }
                 }
+
+                string? logoUrl = await _imageService.UploadImageAsync(
+                    dto.LogoUrl!,
+                    "images/companies"
+                );
+
                 var company = _mapper.Map<Company>(dto);
 
-                var createdCompany = _unitOfWork.Repository<Company>().AddAsync(company);
+                company.LogoUrl = logoUrl;
+
+                await _unitOfWork.Repository<Company>().AddAsync(company);
                 await _unitOfWork.CompleteAsync();
-                var response = _mapper.Map<CompanyToDto>(createdCompany);
+
+                var response = _mapper.Map<CompanyToDto>(company);
 
                 _logger.LogInfo("Company created successfully with Id={Id}", company.CompanyId);
 
                 return response;
             }
-            catch (DuplicateNameException ex)
-            {
-                _logger.LogWarn("Duplicate update error: {Message}", ex.Message);
-                throw;
-            }
-            catch (ArgumentException ex)
-            {
-                _logger.LogError(ex, "Argument error while Creatng Company");
-                throw;
-            }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Unexpected error occurred while creating company");
+                _logger.LogError(ex, "Error while creating company");
                 throw;
             }
         }

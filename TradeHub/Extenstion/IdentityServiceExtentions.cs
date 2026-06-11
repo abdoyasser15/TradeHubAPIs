@@ -32,20 +32,41 @@ namespace TradeHub.Extenstion
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; // Default Authentication Scheme
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme; // Default Challenge Scheme
-            }) // Use Bearer Authentication Scheme
-                .AddJwtBearer("Bearer", options =>
+            })
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
                 {
-                    // Configure Authentication Handler
                     options.TokenValidationParameters = new TokenValidationParameters()
                     {
                         ValidateAudience = true,
                         ValidAudience = configuration["Jwt:Audience"],
+
                         ValidateIssuer = true,
                         ValidIssuer = configuration["Jwt:Issuer"],
+
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"])),
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!)
+                        ),
+
                         ValidateLifetime = true,
-                        ClockSkew = TimeSpan.Zero // Eliminate Token Expiration Delay
+                        ClockSkew = TimeSpan.Zero
+                    };
+
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnMessageReceived = context =>
+                        {
+                            var accessToken = context.Request.Query["access_token"];
+                            var path = context.HttpContext.Request.Path;
+
+                            if (!string.IsNullOrEmpty(accessToken) &&
+                                path.StartsWithSegments("/hubs"))
+                            {
+                                context.Token = accessToken;
+                            }
+
+                            return Task.CompletedTask;
+                        }
                     };
                 });
             return services;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace TradHub.Core.Dtos
         public string? Description { get; set; }
         public double Price { get; set; }
         public int Quantity { get; set; }
-        public string ImageUrl { get; set; }
+        public IFormFile? ImageUrl { get; set; }
         public int CategoryId { get; set; }
         public bool IsActive { get; set; }
     }

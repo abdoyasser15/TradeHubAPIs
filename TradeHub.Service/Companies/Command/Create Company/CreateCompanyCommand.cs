@@ -11,8 +11,8 @@ namespace TradeHub.Service.Companies.Command.Create_Company
 {
     public class CreateCompanyCommand : IRequest<CompanyToDto>
     {
-        public CompanyToDto Company { get; set; }
-        public CreateCompanyCommand(CompanyToDto company)
+        public CreateCompanyDto Company { get; set; }
+        public CreateCompanyCommand(CreateCompanyDto company)
         {
             Company = company;
         }

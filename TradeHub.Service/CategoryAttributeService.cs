@@ -28,7 +28,7 @@ namespace TradeHub.Service
                 Name = dto.Name,
                 DataType = dto.DataType,
                 IsRequired = dto.IsRequired,
-                CategoryId = dto.CategoryId
+                SubCategoryId = dto.CategoryId
             };
             await _unitOfWork.Repository<CategoryAttribute>().AddAsync(categoryAttribute);
             return await _unitOfWork.CompleteAsync() > 0;
@@ -45,8 +45,8 @@ namespace TradeHub.Service
                 Name = ca.Name,
                 DataType = ca.DataType,
                 IsRequired = ca.IsRequired,
-                CategoryId = ca.CategoryId,
-                CategoryName = ca.Category != null ? ca.Category.Name : string.Empty
+                SubCategoryId = ca.SubCategoryId,
+                SubCategoryName = ca.SubCategory != null ? ca.SubCategory.Name : string.Empty
             }).ToList();
             return categoryAttributeDtos;
         }
@@ -62,8 +62,8 @@ namespace TradeHub.Service
                 Name = categoryAttribute.Name,
                 DataType = categoryAttribute.DataType,
                 IsRequired = categoryAttribute.IsRequired,
-                CategoryId = categoryAttribute.CategoryId,
-                CategoryName = categoryAttribute.Category != null ? categoryAttribute.Category.Name : string.Empty
+                SubCategoryId = categoryAttribute.SubCategoryId,
+                SubCategoryName = categoryAttribute.SubCategory != null ? categoryAttribute.SubCategory.Name : string.Empty
             };
             return dto;
         }
@@ -75,7 +75,7 @@ namespace TradeHub.Service
             categoryAttribute.Name = dto.Name;
             categoryAttribute.DataType = dto.DataType;
             categoryAttribute.IsRequired = dto.IsRequired;
-            categoryAttribute.CategoryId = dto.CategoryId;
+            categoryAttribute.SubCategoryId = dto.CategoryId;
             _unitOfWork.Repository<CategoryAttribute>().Update(categoryAttribute);
             return await _unitOfWork.CompleteAsync() > 0;
         }

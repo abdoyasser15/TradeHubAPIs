@@ -12,7 +12,7 @@ namespace TradHub.Core.Dtos
         public string Name { get; set; } = string.Empty;
         public string DataType { get; set; } = string.Empty;
         public bool IsRequired { get; set; }
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
+        public int SubCategoryId { get; set; }
+        public string SubCategoryName { get; set; }
     }
 }

@@ -30,7 +30,7 @@ namespace TradeHub.Controllers
         }
         [Authorize(Roles = "Admin")]
         [HttpGet("roles")]
-        public async Task<ActionResult> GetRoles()
+        public async Task<IActionResult> GetRoles()
         {
             var roles = _roleManager.Roles.Select(r => r.Name).ToList();
             return Ok(roles);

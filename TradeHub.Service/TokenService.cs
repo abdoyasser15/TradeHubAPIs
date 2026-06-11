@@ -39,7 +39,6 @@ namespace TradeHub.Service
                 new Claim("FullName",User.FullName),
                 new Claim(ClaimTypes.NameIdentifier,User.Id),
                 new Claim(ClaimTypes.Email,User.Email),
-                new Claim(ClaimTypes.MobilePhone,User.PhoneNumber),
                 new Claim("AccountType",User.AccountType.ToString() ?? string.Empty)
             };
             var userRoles = await userManager.GetRolesAsync(User);
@@ -58,7 +57,6 @@ namespace TradeHub.Service
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
         public async Task<RefreshToken> GenerateRefreshToken()
         {
             var randomNumber = new byte[64];

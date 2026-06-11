@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +11,19 @@ namespace TradHub.Core.Entity.Identity
 {
     public class AppUser : IdentityUser
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        [NotMapped]
         public string FullName => $"{FirstName} {LastName}";
         public UserRole Role { get; set; }
         public AccountType? AccountType { get; set; }
         public Guid? CompanyId { get; set; }
         public Company? Company { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public string LoginProvider { get; set; }
+        public string? LoginProvider { get; set; }
+        public string? ProfilePictureUrl { get; set; }
         public ICollection<RefreshToken>? RefreshTokens { get; set; } = new List<RefreshToken>();
-        public ICollection<ProductRaiting> ProductRatings { get; set; }
+        public ICollection<ProductRating>? ProductRatings { get; set; }
+        public ICollection<Favourite> Favourites { get; set; } = new List<Favourite>();
     }
 }

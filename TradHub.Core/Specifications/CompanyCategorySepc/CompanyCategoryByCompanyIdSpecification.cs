@@ -9,8 +9,8 @@ namespace TradHub.Core.Specifications.CompanyCategorySepc
 {
     public class CompanyCategoryByCompanyIdSpecification : BaseSpecification<CompanyCategory>
     {
-        public CompanyCategoryByCompanyIdSpecification(Guid companyId)
-            :base(cc => cc.CompanyId == companyId)
+        public CompanyCategoryByCompanyIdSpecification(string companyId)
+            :base(cc => cc.CompanyId.ToString() == companyId)
         {
             AddIncludes();
         }

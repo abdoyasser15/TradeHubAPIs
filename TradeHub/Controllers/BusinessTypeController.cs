@@ -8,7 +8,7 @@ using TradHub.Core.Service_Contract;
 
 namespace TradeHub.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class BusinessTypeController : BaseApiController
     {
         private readonly IBusinessTypeService _businessType;

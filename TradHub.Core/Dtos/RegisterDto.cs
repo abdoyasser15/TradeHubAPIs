@@ -26,7 +26,6 @@ namespace TradeHub.DTOs
         public string? LogoUrl { get; set; }
         public int? BusinessTypeId { get; set; }
         public string? TaxNumber { get; set; }
-
         public string LoginProvider { get; set; }
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
@@ -57,9 +56,6 @@ namespace TradeHub.DTOs
 
                 if (string.IsNullOrWhiteSpace(TaxNumber))
                     yield return new ValidationResult("TaxNumber is required", new[] { nameof(TaxNumber) });
-
-                if (string.IsNullOrWhiteSpace(LogoUrl))
-                    yield return new ValidationResult("TaxNumber is required", new[] { nameof(LogoUrl) });
             }
         }
     }
